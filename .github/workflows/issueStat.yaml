@@ -1,0 +1,16 @@
+name: Issue-Stats
+
+permissions:
+  contents: write
+  issues: read
+
+on:
+  issues:
+    types: [opened, closed, reopened, labeled, unlabeled]
+  workflow_dispatch:
+
+jobs:
+  stats:
+    uses: madderscientist/issueStat/.github/workflows/issueStat.yaml@22ca3fba90248daa8cc324d661539d54690866e4
+    with:
+      tag_name: dashboard
