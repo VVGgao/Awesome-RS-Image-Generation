@@ -10,7 +10,7 @@
 
 <p align="center">Papers · Datasets · Benchmarks · Resources</p>
 
-> **Framework only / 框架阶段**：论文、数据集、评测、图片及作者信息均留待后续填写。以下分类是可调整的目录占位，不代表已确定最终收录范围。
+> **Sample / 示例阶段**：先从 `all_investigated_literature.xlsx` 中选取 8 篇论文展示填表效果。数据集、评测、图片及作者信息继续留空；分类仍可调整，不代表最终收录范围。条目来源及字段修订见 [Sample Sources](docs/sample-sources.md)。
 
 <!-- Project introduction and survey scope go here. -->
 
@@ -21,7 +21,7 @@ Contributions are welcome. Use the [paper submission template](.github/ISSUE_TEM
 
 <!-- Add dated updates here, newest first. -->
 
-_To be added._
+- **2026-10-12**: Added 8 sample papers from the literature workbook, with paper links, available author repositories, and source-row references.
 
 <a id="overview"></a>
 ## 🌍 Overview
@@ -98,6 +98,7 @@ _Issue navigation and statistics badges to be added after repository setup._
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2025 | IEEE GRSM | Text-to-image; foundation model | Text2Earth: Unlocking Text-driven Remote Sensing Image Generation with a Global-Scale Dataset and a Foundation Model | [Paper](https://doi.org/10.1109/MGRS.2025.3560455) | [Code](https://github.com/Chen-Yang-Liu/Text2Earth) | [Source](docs/sample-sources.md#text2earth) |
 
 <!-- Add paper rows here. -->
 
@@ -106,6 +107,8 @@ _Issue navigation and statistics badges to be added after repository setup._
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2025 | CVPR | Layout control; diffusion; object detection | AeroGen: Enhancing Remote Sensing Object Detection with Diffusion-Driven Data Generation | [Paper](https://openaccess.thecvf.com/content/CVPR2025/html/Tang_AeroGen_Enhancing_Remote_Sensing_Object_Detection_with_Diffusion-Driven_Data_Generation_CVPR_2025_paper.html) | [Code](https://github.com/Sonettoo/AeroGen) | [Source](docs/sample-sources.md#aerogen) |
+| 2024 | ICLR | Geospatial metadata; diffusion; foundation model | DiffusionSat: A Generative Foundation Model for Satellite Imagery | [Paper](https://arxiv.org/abs/2312.03606) | [Code](https://github.com/samar-khanna/DiffusionSat) | [Source](docs/sample-sources.md#diffusionsat) |
 
 <!-- Add paper rows here. -->
 
@@ -122,6 +125,7 @@ _Issue navigation and statistics badges to be added after repository setup._
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2024 | arXiv | Change detection; semantic control; latent diffusion | ChangeAnywhere: Sample Generation for Remote Sensing Change Detection via Semantic Latent Diffusion Model | [Paper](https://arxiv.org/abs/2404.08892) | [Repository](https://github.com/tangkai-RS/ChangeAnywhere) | [Source](docs/sample-sources.md#changeanywhere) |
 
 <!-- Add paper rows here. -->
 
@@ -130,6 +134,8 @@ _Issue navigation and statistics badges to be added after repository setup._
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2025 | ICCV | Any-to-any generation; multimodal foundation model | TerraMind: Large-Scale Generative Multimodality for Earth Observation | [Paper](https://openaccess.thecvf.com/content/ICCV2025/html/Jakubik_TerraMind_Large-Scale_Generative_Multimodality_for_Earth_Observation_ICCV_2025_paper.html) | [Code](https://github.com/IBM/terramind) | [Source](docs/sample-sources.md#terramind) |
+| 2022 | IJCAI | SAR-to-optical; neural PDE | SAR-to-Optical Image Translation via Neural Partial Differential Equations | [Paper](https://www.ijcai.org/proceedings/2022/229) | — | [Source](docs/sample-sources.md#s2o-npde) |
 
 <!-- Add paper rows here. -->
 
@@ -140,6 +146,7 @@ _Issue navigation and statistics badges to be added after repository setup._
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2024 | CVPR | Hyperspectral restoration; diffusion; low-rank prior | HIR-Diff: Unsupervised Hyperspectral Image Restoration Via Improved Diffusion Models | [Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Pang_HIR-Diff_Unsupervised_Hyperspectral_Image_Restoration_Via_Improved_Diffusion_Models_CVPR_2024_paper.html) | [Code](https://github.com/LiPang/HIRDiff) | [Source](docs/sample-sources.md#hir-diff) |
 
 <!-- Add paper rows here. -->
 
@@ -148,6 +155,7 @@ _Issue navigation and statistics badges to be added after repository setup._
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2024 | IEEE TGRS | Hyperspectral synthesis; unmixing; diffusion | UnmixDiff: Unmixing-Based Diffusion Model for Hyperspectral Image Synthesis | [Paper](https://doi.org/10.1109/TGRS.2024.3425517) | [Code](https://github.com/yuyang95/UnmixingDM) | [Source](docs/sample-sources.md#unmixdiff) |
 
 <!-- Add paper rows here. -->
 
