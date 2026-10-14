@@ -1,5 +1,7 @@
 # Sample Sources
 
+> 本页保留 2026-10-12 的初始 8 条 sample 导入记录。当前正式汇总及筛选说明见 [Literature Sources](literature-sources.md)。
+
 这 8 篇示例论文来自用户提供的 `all_investigated_literature.xlsx`，工作表为 `All Literature`。下表行号是 Excel 实际行号，第 1 行为字段名。
 
 本次只选取原表中 `active_reference = true`、`representative_method = true` 的部分条目，不导入完整文献库，不上传原 Excel，也不修改原文件。

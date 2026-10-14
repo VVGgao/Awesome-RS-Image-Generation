@@ -1,0 +1,416 @@
+# Literature Sources and Import Notes
+
+## Source and Coverage
+
+- 输入文件：用户提供的 `all_investigated_literature.xlsx`，工作表 `All Literature`。原文件未修改、未上传。
+- Excel 原表共 **5,627** 条记录。本轮读取其中 **362** 条进入过有效引用集、已读集或明确收录集的记录，纳入 **341** 篇独立文献/资源，暂缓 **21** 条。
+- 正文包含 **323** 篇方法及相关 3D 研究、**7** 个数据资源、**3** 项 benchmark、**4** 项通用指标基础文献、**3** 篇综述及 **3** 项背景资源。Git-10M 和 ChangeAnywhere-100K 与对应方法论文共用来源，正文合计 343 个表格条目，不代表 343 篇独立论文。
+- 本次整理时间：**2026-10-14**。这不是对原表全部 5,627 条记录的重新全文审查，也不声称覆盖 Excel 快照之后的所有新增论文。
+- 原文件 SHA-256：`DB1426610537C25F6E3A02A06287BC05B4CA086149449100272344F371F47ADA`。
+- 下表行号是 Excel 实际行号，第 1 行为字段名。仅公开书目、任务分类与来源行号，不公开内部 PDF 路径、调研笔记或全文摘录。
+
+<a id="selection-rules"></a>
+## Selection Rules
+
+1. 使用原表当前的 `active_reference` 或已读/收录状态作为候选入口；不将仅标题发现、排除、未筛选的全部记录直接搬入仓库。
+2. 保留与生成、翻译、恢复、重建或相关评测资源有关且具有核查证据的条目。证据缺失、身份不确定、链接缺失的记录暂缓。
+3. 期刊保留原表的书目信息。会议采用明确准入：CVPR/ICCV 主会、ICLR、NeurIPS、ICML、AAAI、IJCAI、ACM MM、WACV、ICASSP，以及用户明确同意保留的遥感领域主要会议 **IGARSS**。EMNLP 仅在通用指标原始文献中出现。
+4. 不因 EI 检索本身决定收录；未确认质量的一般会议、未进入准入集的论文集，以及未确认的 Findings 条目不放入正文。
+5. 允许 arXiv；原表为预印本或具有明确 arXiv 来源、但无可确认正式发表信息时，按 arXiv 版本列出，不把预印本当成会议录用。不能用模糊的会议名称推测录用情况。
+6. 原表有历史筛选信号合并的情况：当 scope 字段同时出现旧否定与当前直接相关信号时，以当前已核查引用/已读状态及任务分类为依据，不机械地仅按字符串中某个旧信号删除文献。
+7. 不把背景综述、通用指标、工作流、单像素反射率重建或相关 3D 研究混写为独立二维遥感生成算法。
+8. 按 DOI / 规范化题名去重，各分类内年份从新到旧。数据资源与方法论文的对应展示不算重复收录论文。
+
+## Field Handling
+
+- 去除题名中的 BibTeX 大括号，保留原论文身份。
+- 使用原表年份和发表渠道；保留已查证的 DiffusionSat **ICLR 2024** 年份修订，不再把 2023 预印本年份与会议年份混用。
+- 优先使用原表 DOI、具体论文页或 arXiv 标识；修正 CVF 首页型链接。TerraMind 与 NeurOp-Diff 分别使用具体 ICCV 2025 页面。
+- Keywords 主要对应原表任务分类，不添加未经核验的技术创新或性能结论。
+- 仅填写已确认的作者代码/数据入口；`—` 表示尚未确认，并非证明资源不存在。ChangeAnywhere 使用 Repository 标签，不声称生成训练代码已完整发布。
+- 数据集、通用指标名称补充依据对应论文或作者页面。未知的样本数、分辨率、评测值、下载条件均不猜填。
+- 出版信息主要来自原表，本次没有逐篇重新核验全部全文及最新发表状态。
+
+## Source Rows
+
+| Excel row | master_id | Title | README category | Original subclass | Import note |
+| :---: | --- | --- | --- | --- | --- |
+| <a id="r2"></a>2 | `arxiv:2606.28896` | A Task-Driven and Quality-Assured Agent Framework for SAR Data Generation | Resources | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r3"></a>3 | `paper:P02007` | DSCH-Net: Diffusion-State-Contextual Hybrid Network for Physics-Inspired and Direction-Aware Dehazing of Remote Sensing Imagery | Restoration and Reconstruction | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r4"></a>4 | `support:w2:zhou2026geochef` | GeoChef: A Data-Centric Guide to Tailoring Vision-Language Models for Remote Sensing | Resources | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r5"></a>5 | `arxiv:2606.18115` | HLS-GPT: A Generative Pretrained Transformer for Continental-Scale NASA Harmonized Landsat and Sentinel-2 Reflectance Reconstruction Across All Bands on Arbitrary Dates | Resources | — | 单像素反射率时间序列重建的背景资源，不作为独立图像生成方法 |
+| <a id="r6"></a>6 | `paper:P01381` | MetaEarth3D: Unlocking World-Scale 3D Generation With Spatially Scalable Generative Modeling | Related 3D Generation and View Synthesis | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r7"></a>7 | `paper:P00070` | Pansharpening for Thin-Cloud Contaminated Remote Sensing Images: A Unified Framework and Benchmark Dataset | Benchmarks | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r8"></a>8 | `arxiv:2607.20197` | RS-RIE-Bench: Benchmarking Reasoning-Guided Remote Sensing Image Editing | Benchmarks | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r9"></a>9 | `paper:P03484` | Synthetic Abundance Maps for Unsupervised Super-Resolution of Hyperspectral Remote Sensing Images | Restoration and Reconstruction | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r10"></a>10 | `paper:P00920` | A Large-Scale Aerial and Satellite Image Dataset for Deep Learning-Based Image Super-Resolution of Very High-Resolution Remote Sensing Imagery | Task-Specific Datasets | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r12"></a>12 | `paper:P01045` | AerialMegaDepth: Learning Aerial-Ground Reconstruction and View Synthesis | Related 3D Generation and View Synthesis | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r13"></a>13 | `support:w2:xiao2025foundationmodelsurvey` | Foundation Models for Remote Sensing and Earth Observation: A Survey | Surveys | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r14"></a>14 | `paper:P00035` | Hipandas: Hyperspectral Image Joint Denoising and Super-Resolution by Image Fusion with the Panchromatic Image | Restoration and Reconstruction | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r15"></a>15 | `paper:P01047` | MagicCity: Geometry-Aware 3D City Generation from Satellite Imagery with Multi-View Consistency | Related 3D Generation and View Synthesis | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r16"></a>16 | `paper:P00275` | Real-World Remote Sensing Image Dehazing: Benchmark and Baseline | Benchmarks | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r17"></a>17 | `paper:P00029` | Sat2City: 3D City Generation from A Single Satellite Image with Cascaded Latent Diffusion | Related 3D Generation and View Synthesis | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r18"></a>18 | `support:w2:lu2025visionfoundationmodelsurvey` | Vision Foundation Models in Remote Sensing: A Survey | Surveys | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r19"></a>19 | `paper:P01953` | Winscaleformer: Diffusion-Attention-Based Single Remote Sensing Image Dehazing | Restoration and Reconstruction | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r20"></a>20 | `paper:P03527` | Activated Sparsely Sub-Pixel Transformer for Remote Sensing Image Super-Resolution | Restoration and Reconstruction | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r21"></a>21 | `paper:P01393` | Cross-sensor Super-resolution of Irregularly Sampled Sentinel-2 Time Series | Restoration and Reconstruction | — | 依据原表的 arXiv 链接或预印本标记显示为 arXiv，不宣称正式会议录用 |
+| <a id="r22"></a>22 | `paper:P00484` | Generative Artificial Intelligence Meets Synthetic Aperture Radar: A Survey | Surveys | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r23"></a>23 | `paper:P00015` | Sat2Scene: 3D Urban Scene Generation from Satellite Images with Diffusion | Related 3D Generation and View Synthesis | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r24"></a>24 | `paper:P03512` | Aerial Visible-to-Infrared Image Translation: Dataset, Evaluation, and Baseline | Task-Specific Datasets | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r25"></a>25 | `paper:P00038` | ESSAformer: Efficient Transformer for Hyperspectral Image Super-resolution | Restoration and Reconstruction | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r26"></a>26 | `paper:P00026` | Toward Stable, Interpretable, and Lightweight Hyperspectral Super-Resolution | Restoration and Reconstruction | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r28"></a>28 | `paper:P01035` | Permutation Invariance and Uncertainty in Multitemporal Image Super-Resolution | Restoration and Reconstruction | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r29"></a>29 | `support:w2:hessel2021clipscore` | CLIPScore: A Reference-Free Evaluation Metric for Image Captioning | Evaluation Metrics | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r30"></a>30 | `support:w2:chen2020levircd` | A Spatial-Temporal Attention-Based Method and a New Dataset for Remote Sensing Image Change Detection | Task-Specific Datasets | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r32"></a>32 | `support:w2:schmitt2019sen12ms` | SEN12MS: A Curated Dataset of Georeferenced Multi-Spectral Sentinel-1/2 Imagery for Deep Learning and Data Fusion | Comprehensive Datasets | — | 以查证后的 arXiv 版本列入数据资源，不将 ISPRS Annals 会议论文列入方法表 |
+| <a id="r34"></a>34 | `support:w2:xia2018dota` | DOTA: A Large-Scale Dataset for Object Detection in Aerial Images | Task-Specific Datasets | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r35"></a>35 | `support:w2:zhang2018lpips` | The Unreasonable Effectiveness of Deep Features as a Perceptual Metric | Evaluation Metrics | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r36"></a>36 | `support:w2:heusel2017fid` | GANs Trained by a Two Time-Scale Update Rule Converge to a Local Nash Equilibrium | Evaluation Metrics | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r38"></a>38 | `support:w2:wang2004ssim` | Image Quality Assessment: From Error Visibility to Structural Similarity | Evaluation Metrics | — | 依据题名和原表上下文分配资源/背景类别 |
+| <a id="r39"></a>39 | `paper:P03473` | CondFusionSAR: A Bidirectional MultiConditional Fusion Network for Generating High-Resolution SAR Images With Complex Backgrounds | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r40"></a>40 | `paper:P01111` | Controllable Remote Sensing Image Generation With Semantic Consistency via Diffusion Models | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r41"></a>41 | `paper:P01224` | RSGen: Enhancing Layout-Driven Remote Sensing Image Generation with Diverse Edge Guidance | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r42"></a>42 | `paper:P01222` | TerraGen: A Unified Multi-Task Layout Generation Framework for Remote Sensing Data Augmentation | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r43"></a>43 | `paper:P01262` | Wildfire-Diff: A Controllable Diffusion Framework for Synchronized Generation of Remote Sensing Wildfire Images and Masks | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r44"></a>44 | `paper:P00003` | AeroGen: Enhancing Remote Sensing Object Detection with Diffusion-Driven Data Generation | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r45"></a>45 | `paper:P01180` | Cascaded Autoregressive Diffusion Models for Remote Sensing Scene Generation | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r46"></a>46 | `paper:P00327` | CC-Diff++: Spatially Controllable Text-to-Image Synthesis for Remote Sensing With Enhanced Contextual Coherence | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r47"></a>47 | `paper:P00058` | Diverse Instance Generation via Diffusion Models for Enhanced Few-Shot Object Detection in Remote Sensing Images | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r48"></a>48 | `paper:P01243` | FICGen: Frequency-Inspired Contextual Disentanglement for Layout-driven Degraded Image Generation | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r49"></a>49 | `paper:P01184` | Multi-Grained Guided Diffusion for Quantity-Controlled Remote Sensing Object Generation | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r50"></a>50 | `paper:P00004` | Object Fidelity Diffusion for Remote Sensing Image Generation | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r51"></a>51 | `paper:P01251` | Reconciling Semantic Controllability and Diversity for Remote Sensing Image Synthesis With Hybrid Semantic Embedding | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r52"></a>52 | `paper:P00043` | Remote Sensing Image Semantic Segmentation Sample Generation Using a Decoupled Latent Diffusion Framework | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r53"></a>53 | `paper:P01210` | Satellite Image Synthesis From Street View With Fine-Grained Spatial Textual Guidance: A Novel Framework | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r54"></a>54 | `paper:P00041` | Synthesizing Remote Sensing Images from Land Cover Annotations via Graph Prior Masked Diffusion | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r55"></a>55 | `paper:P01040` | CC-Diff: Enhancing Contextual Coherence in Remote Sensing Image Synthesis | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r56"></a>56 | `paper:P00025` | SatSynth: Augmenting Image-Mask Pairs Through Diffusion Models for Aerial Semantic Segmentation | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r57"></a>57 | `paper:P01236` | Remote Sensing Image Synthesis via Semantic Embedding Generative Adversarial Networks | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r58"></a>58 | `paper:P00462` | Semantic-Layout-Guided Image Synthesis for High-Quality Synthetic-Aperature Radar Detection Sample Generation | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r59"></a>59 | `paper:P03457` | SSSGAN: Satellite Style and Structure Generative Adversarial Networks | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r60"></a>60 | `paper:P00074` | D2-CDIG: Controlled Diffusion Remote Sensing Image Generation with Dual Priors of DEM and Cloud-Fog | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r61"></a>61 | `arxiv:2504.19432` | EarthMapper: Visual Autoregressive Models for Controllable Bidirectional Satellite-Map Translation | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r62"></a>62 | `paper:P03577` | Efficient Geometry-Controlled High-Resolution Satellite Image Synthesis | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r63"></a>63 | `arxiv:2606.31029` | TerraDiT-Omega: Unified Spatial Control for Satellite Image Synthesis with Any Geospatial Primitive | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | 原表 Venue 为空；使用原表 arXiv 标识补为 arXiv |
+| <a id="r64"></a>64 | `paper:P01239` | VectorSynth: Fine-Grained Satellite Image Synthesis with Structured Semantics | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r65"></a>65 | `paper:P00063` | Environment-Aware Satellite Image Generation with Diffusion Models | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r66"></a>66 | `paper:P00008` | OP-Gen: A High-Quality Remote Sensing Image Generation Algorithm Guided by OSM Images and Textual Prompts | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r67"></a>67 | `paper:P01250` | OSMGen: Highly Controllable Satellite Image Synthesis using OpenStreetMap Data | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r68"></a>68 | `paper:P00014` | DiffusionSat: A Generative Foundation Model for Satellite Imagery | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | 使用 ICLR 2024 正式会议年份，原表为 2023 预印本年份 |
+| <a id="r69"></a>69 | `paper:P01246` | Synthesizing Optical and SAR Imagery From Land Cover Maps and Auxiliary Raster Data | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r70"></a>70 | `paper:P01240` | Task-Oriented Data Synthesis and Control-Rectify Sampling for Remote Sensing Semantic Segmentation | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r71"></a>71 | `paper:P03545` | Towards Realistic Remote Sensing Dataset Distillation with Discriminative Prototype-Guided Diffusion | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r72"></a>72 | `paper:P03472` | Annotation-Free, High-Fidelity SAR Oil-Spill Image Synthesis via Classification-Guided Diffusion Model | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r73"></a>73 | `paper:P03465` | DiffuSAR: Frequency Domain-Aware Diffusion Model for SAR Image Generation | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r74"></a>74 | `paper:P01289` | Diffusion-Noise-Based Augmentation for Long-Tailed Remote Sensing Image Classification | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r75"></a>75 | `paper:P00075` | EarthSynth: Generating Informative Earth Observation with Diffusion Models | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r76"></a>76 | `paper:P00383` | A Two-Stage SAR Image Generation Algorithm Based on GAN with Reinforced Constraint Filtering and Compensation Techniques | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r77"></a>77 | `paper:P01119` | ChangeAnywhere: Sample Generation for Remote Sensing Change Detection via Semantic Latent Diffusion Model | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r78"></a>78 | `paper:P03311` | Coarse-to-Fine Structure and Semantic Learning for Single-Sample SAR Image Generation | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r79"></a>79 | `paper:P01112` | Efficient and Controllable Remote Sensing Fake Sample Generation Based on Diffusion Model | Unconditional Generation and Data Synthesis | task_oriented_synthesis | — |
+| <a id="r80"></a>80 | `paper:P00007` | Any2RSI: Controllable Remote Sensing Text-to-Image Generation via Any Control and Enriched Description | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r81"></a>81 | `arxiv:2607.23673` | Contrastive Parameter Disentanglement for Multi-Modal Remote Sensing Image Generation | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r82"></a>82 | `paper:P03441` | Language-Informed Hyperspectral Image Synthesis for Imbalanced-Small Sample Classification via Semi-Supervised Conditional Diffusion Model | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r83"></a>83 | `paper:P01121` | Multiple Conditions-Guided Diffusion Model for Remote Sensing Image Generation | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r84"></a>84 | `paper:P03532` | Quantitative Comparison of Fine-Tuning Techniques for Pretrained Latent Diffusion Models in the Generation of Unseen SAR Images | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r85"></a>85 | `paper:P00059` | DiffRS: An Extensible Diffusion Model for Remote Sensing Image Generation | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r86"></a>86 | `paper:P03565` | HDP-Net: Hierarchical Dynamic Prototype Learning for Text-Based Remote Sensing Image Generation | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r87"></a>87 | `paper:P03464` | IFADiff: Training-Free Hyperspectral Image Generation via Integer--Fractional Alternating Diffusion Sampling | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r88"></a>88 | `paper:P00002` | MetaEarth: A Generative Foundation Model for Global-Scale Remote Sensing Image Generation | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r89"></a>89 | `paper:P00001` | Text2Earth: Unlocking text-driven remote sensing image generation with a global-scale dataset and a foundation model | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r90"></a>90 | `paper:P00006` | CRS-Diff: Controllable Remote Sensing Image Generation With Diffusion Model | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r91"></a>91 | `paper:P03566` | Manifold Constraint Regularization for Remote Sensing Image Generation | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r92"></a>92 | `paper:P00086` | RSDiff: remote sensing image generation from text using diffusion model | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r93"></a>93 | `paper:P03485` | Gradient Structure Information-Guided Attention Generative Adversarial Networks for Remote Sensing Image Generation | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r94"></a>94 | `paper:P01187` | Text-to-Remote-Sensing-Image Generation With Structured Generative Adversarial Networks | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r95"></a>95 | `paper:P00255` | DisasterGAN: Generative Adversarial Networks for Remote Sensing Disaster Image Generation | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r96"></a>96 | `paper:P00248` | Remote Sensing Image Synthesis via Graphical Generative Adversarial Networks | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r97"></a>97 | `paper:P03518` | A Differentiable Method for Novel View SAR Image Generation via 3D Gaussian Splatting | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r98"></a>98 | `doi:10.1145/3767308.3834743` | G-MAD: A Game-Based Data Generation Framework for Multi-View RGB-T Aerial Object Detection | Differentiable Rendering and Simulation | differentiable_rendering_simulation | 原表为已录用作者稿，未宣称已正式出版 |
+| <a id="r99"></a>99 | `external:sar3dgs3dgaussiansplattingforsyntheticapertureradarnovelviewsynt` | SAR-3DGS: 3-D Gaussian Splatting for Synthetic Aperture Radar Novel View Synthesis and Target Reconstruction | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r100"></a>100 | `external:splattingsadirectrenderingofsyntheticapertureimagery` | Splatting SA: Direct Rendering of Synthetic Aperture Imagery | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r101"></a>101 | `paper:P03504` | Generating SAR Images from Optical Data: A Hybrid AI and Physics-Based Approach | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r102"></a>102 | `doi:10.1109/tgrs.2025.3639636` | SAR-GS: Gaussian Splatting-Based SAR Image Rendering and Target Reconstruction | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r103"></a>103 | `paper:P03523` | TerrAInav Sim: An Open-Source Simulation of UAV Aerial Imaging from Map-Based Data | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r104"></a>104 | `paper:P02157` | Synthetic Aperture Radar Deep Statistical Imaging Through Diffusion Generative Model Conditional Inference | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r105"></a>105 | `paper:P00735` | Fast SAR Image Simulation Based on Echo Matrix Cell Algorithm Including Multiple Scattering | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r106"></a>106 | `paper:P03503` | SAR Image Generation by Integrating Differentiable SAR Renderer with Neural Networks | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r107"></a>107 | `paper:P00728` | SAR Image Simulation of Complex Target including Multiple Scattering | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r108"></a>108 | `paper:P00046` | Dual-Branch Feature Decoupling GAN with Wavelet Constraint for Azimuth-Controllable SAR Image Simulation | Geometry-, View- and Acquisition-Controlled Generation | geometry_view_acquisition_control | — |
+| <a id="r109"></a>109 | `doi:10.1007/s11432-025-5025-1` | GeoDiff-SAR: A Geometric-Prior-Guided Diffusion Model for SAR Image Generation | Geometry-, View- and Acquisition-Controlled Generation | geometry_view_acquisition_control | 原表 publication_status 为 preprint，与期刊字段并列；本轮以原表 arXiv 版本列出，不进一步推断期刊发表状态 |
+| <a id="r110"></a>110 | `paper:P03543` | GeoDiff-SAR II: 3D-Driven Foundation Diffusion Models for SAR Generation via Decoupled Control | Geometry-, View- and Acquisition-Controlled Generation | geometry_view_acquisition_control | — |
+| <a id="r111"></a>111 | `paper:P00045` | An Azimuth-Continuously Controllable SAR Image Generation Algorithm Based on GAN | Geometry-, View- and Acquisition-Controlled Generation | geometry_view_acquisition_control | — |
+| <a id="r112"></a>112 | `paper:P00047` | Multi-View Approach for Physically-Guided SAR Image Generation Based on StyleGAN2 | Geometry-, View- and Acquisition-Controlled Generation | geometry_view_acquisition_control | — |
+| <a id="r113"></a>113 | `paper:P03282` | SAR Image Generation Algorithm Based on Azimuth Partition Directed Generative Adversarial Network | Geometry-, View- and Acquisition-Controlled Generation | geometry_view_acquisition_control | — |
+| <a id="r114"></a>114 | `paper:P00716` | ATGAN: A SAR Target Image Generation Method for Automatic Target Recognition | Geometry-, View- and Acquisition-Controlled Generation | geometry_view_acquisition_control | — |
+| <a id="r115"></a>115 | `paper:P02586` | Circular Synthetic Aperture Radar Sub-Aperture Angle Information Complementation Based on Azimuth-Controllable Generative Adversarial Network | Geometry-, View- and Acquisition-Controlled Generation | geometry_view_acquisition_control | — |
+| <a id="r116"></a>116 | `paper:P02600` | SAR Target Image Generation Method Using Azimuth-Controllable Generative Adversarial Network | Geometry-, View- and Acquisition-Controlled Generation | geometry_view_acquisition_control | — |
+| <a id="r117"></a>117 | `paper:P03467` | High-Fidelity Infrared Remote Sensing Image Generation Method Coupled with the Global Radiation Scattering Mechanism and Pix2PixGAN | Physics- and Spectral-Prior-Guided Generation | radiative_atmospheric_spectral_physics | — |
+| <a id="r118"></a>118 | `paper:P03444` | UnmixDiff: Unmixing-Based Diffusion Model for Hyperspectral Image Synthesis | Physics- and Spectral-Prior-Guided Generation | radiative_atmospheric_spectral_physics | — |
+| <a id="r119"></a>119 | `doi:10.1109/tgrs.2022.3232705` | Hyperspectral Remote Sensing Image Synthesis Based on Implicit Neural Spectral Mixing Models | Physics- and Spectral-Prior-Guided Generation | radiative_atmospheric_spectral_physics | — |
+| <a id="r120"></a>120 | `doi:10.1109/tgrs.2023.3248106` | Physics Guided Remote Sensing Image Synthesis Network for Ship Detection | Physics- and Spectral-Prior-Guided Generation | radiative_atmospheric_spectral_physics | — |
+| <a id="r121"></a>121 | `paper:P02473` | Physics-Informed Hyperspectral Remote Sensing Image Synthesis With Deep Conditional Generative Adversarial Networks | Physics- and Spectral-Prior-Guided Generation | radiative_atmospheric_spectral_physics | — |
+| <a id="r122"></a>122 | `paper:P03007` | DIRSIG5: Next-Generation Remote Sensing Data and Image Simulation Framework | Physics- and Spectral-Prior-Guided Generation | radiative_atmospheric_spectral_physics | — |
+| <a id="r123"></a>123 | `paper:P01248` | HuiYanEarth-SAR: A Foundation Model for High-Fidelity and Low-Cost Global Remote Sensing Imagery Generation | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | 依据原表的 arXiv 链接或预印本标记显示为 arXiv，不宣称正式会议录用 |
+| <a id="r124"></a>124 | `paper:P00009` | SAR-DisentDM: A Semantic-Disentangled Diffusion Model for Limited-Data SAR Image Synthesis | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r125"></a>125 | `paper:P03468` | Scattering-Aware Diffusion Model: Enforcing Polarimetric Fidelity for PolSAR Data Generation | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r126"></a>126 | `doi:10.3390/rs18142417` | Scattering Center Prior-Guided Diffusion for Unknown-Azimuth SAR Image Generation | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r127"></a>127 | `paper:P03491` | A Fast SAR Image Generation Method Based on System Transfer Function Convolution | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r128"></a>128 | `paper:P00703` | ESF-GAN: Physics-Driven Electromagnetic Scattering Feature Fusion-Based GAN for SAR Image Augmentation | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r129"></a>129 | `paper:P03477` | One Polarimetric Mechanism-Guide Network for PolSAR False Sea Scene Generation | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r130"></a>130 | `paper:P00031` | Ph-GAN: Physics-Inspired GAN for Generating SAR Images Under Limited Data | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r131"></a>131 | `paper:P03463` | PolSAR Ship Targets Generation via the Polarimetric Feature Guided Denoising Diffusion Probabilistic Model | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r132"></a>132 | `paper:P01352` | Any2Any: Unified Arbitrary Modality Translation for Remote Sensing | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r133"></a>133 | `paper:P02421` | Bridging SAR and Optical Domains: Synergizing Brownian Bridge Diffusion and Local Contrastive Learning for Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r134"></a>134 | `paper:P03506` | CycleMamba: Cycle-Consistent Learning for Aerial Visible-to-Infrared Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r135"></a>135 | `paper:P00376` | D-PolTransGAN: Scattering Guided Hybrid Transformer-GAN for SAR-Optical Image Translation Using Dual Polarization SAR | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r136"></a>136 | `paper:P03502` | DGC\_GAN: An Unpaired Method for Cross-Spectral Image Translation from Visible to Thermal Infrared | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r137"></a>137 | `paper:P03475` | Diffusion Bridge Generation of Visible Light-to-Infrared Images Based on Multiscale Enhancement From Aerial Photography Perspective | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r138"></a>138 | `paper:P02350` | EarthBridge: A Solution for 4th Multi-modal Aerial View Image Challenge Translation Track | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | 依据原表的 arXiv 链接或预印本标记显示为 arXiv，不宣称正式会议录用 |
+| <a id="r139"></a>139 | `paper:P00073` | MetaEarth-MM: Unified Multimodal Remote Sensing Image Generation with Scene-centered Joint Modeling | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r140"></a>140 | `external:phyosshipmsdatasetapairedopticalsarshipimagerygenerationmethodvi` | Phy-OSShip-MS Dataset: A Paired Optical-SAR Ship Imagery Generation Method via Hierarchical Physics-Guided Style Transfer | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r141"></a>141 | `paper:P02347` | A Diffusion-Guided Task Decomposition Framework for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r142"></a>142 | `paper:P00605` | Conditional Brownian Bridge Diffusion Model for VHR SAR to Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r143"></a>143 | `paper:P02440` | Cross-Modal Visible-to-Infrared Image Translation in Remote Sensing Guided by Thermal Features | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r144"></a>144 | `paper:P02439` | DOGAN: DINO-Based Optical-Prior-Driven GAN for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r145"></a>145 | `paper:P00999` | Flow-SAR: Cross-Domain SAR Image Translation Using Flow Models | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r146"></a>146 | `paper:P03470` | GFTT: Geographical Feature Tokenization Transformer for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r147"></a>147 | `paper:P02424` | HVT-cGAN: Hybrid Vision Transformer cGAN for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r148"></a>148 | `paper:P00079` | Improved Flood Insights: Diffusion-Based SAR-to-EO Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r149"></a>149 | `paper:P00030` | Leveraging BEV Paradigm for Ground-to-Aerial Image Synthesis | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r150"></a>150 | `paper:P02345` | RLI-DM: Robust Layout-Based Iterative Diffusion Model for SAR-to-RGB Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r151"></a>151 | `paper:P02880` | S3OIL: Semi-Supervised SAR-to-Optical Image Translation via Multi-Scale and Cross-Set Matching | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r152"></a>152 | `paper:P03158` | SAR-to-Optical Remote Sensing Image Translation Method Based on InternImage and Cascaded Multi-Head Attention | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r153"></a>153 | `paper:P00078` | Sequential SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r154"></a>154 | `paper:P03433` | Simulating Nighttime Visible Satellite Imagery of Tropical Cyclones Using Conditional Generative Adversarial Networks | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r155"></a>155 | `paper:P01049` | TerraMind: Large-Scale Generative Multimodality for Earth Observation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | 将原表 CVF 首页替换为具体论文页面 |
+| <a id="r156"></a>156 | `paper:P03141` | Unpaired Object-Level SAR-to-Optical Image Translation for Aircraft with Keypoints-Guided Diffusion Models | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r157"></a>157 | `paper:P03501` | USTNet: A U-Net Swin Transformer Network for Aerial Visible-to-Infrared Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r158"></a>158 | `paper:P00120` | Assessing the Potential of Multi-Temporal Conditional Generative Adversarial Networks in SAR-to-Optical Image Translation for Early-Stage Crop Monitoring | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r159"></a>159 | `paper:P03131` | C-DiffSET: Leveraging Latent Diffusion for SAR-to-EO Image Translation with Confidence-Guided Reliable Object Generation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r160"></a>160 | `paper:P00602` | Conditional Diffusion for SAR to Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r161"></a>161 | `paper:P00610` | Conditional Diffusion Model With Spatial-Frequency Refinement for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r162"></a>162 | `paper:P03490` | DEM-Assisted Neural Network for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r163"></a>163 | `paper:P03499` | DR-AVIT: Toward Diverse and Realistic Aerial Visible-to-Infrared Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r164"></a>164 | `paper:P00665` | High-Resolution SAR-to-Multispectral Image Translation Based on S2MS-GAN | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r165"></a>165 | `paper:P03225` | Improved Few-Shot SAR Image Generation by Enhancing Diversity | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r166"></a>166 | `paper:P03462` | Integrating Multitemporal SAR and Optical Information for Missing Optical Imagery Generation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r167"></a>167 | `paper:P00076` | Learning SAR-to-Optical Image Translation via Diffusion Models With Color Memory | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r168"></a>168 | `paper:P03471` | MS-GAN: Learn to Memorize Scene for Unpaired SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r169"></a>169 | `paper:P03117` | Multi-Sensor Diffusion-Driven Optical Image Translation for Large-Scale Applications | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r170"></a>170 | `paper:P00776` | Multispectral Band-Aware Generation of Satellite Images across Domains Using Generative Adversarial Networks and Contrastive Learning | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r171"></a>171 | `paper:P00668` | Optical-to-SAR Translation Based on CDA-GAN for High-Quality Training Sample Generation for Ship Detection in SAR Amplitude Images | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r172"></a>172 | `paper:P00168` | SAR Temporal Shifting: A New Approach for Optical-to-SAR Translation with Consistent Viewing Geometry | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r173"></a>173 | `paper:P00588` | SAR-to-Optical Image Translation via an Interpretable Network | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r174"></a>174 | `paper:P00606` | SAR-to-Optical Translation Using Conditional Diffusion Models for Wildfire-Burned Area Segmentation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r175"></a>175 | `paper:P03437` | Scene-Embedded Generative Adversarial Networks for Semi-Supervised SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r176"></a>176 | `paper:P02891` | Segmentation-Guided Context Learning Using EO Object Labels for Stable SAR-to-EO Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r177"></a>177 | `paper:P03500` | Visible-to-Infrared Image Translation for Matching Tasks | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r178"></a>178 | `paper:P00146` | Adaptive Conditional GAN Based Ka-Band PolSAR Image Simulation by Using X-Band PolSAR Image Transfer | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r179"></a>179 | `paper:P03498` | CFCA-SET: Coarse-to-Fine Context-Aware SAR-to-EO Translation With Auxiliary Learning of SAR-to-NIR Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r180"></a>180 | `paper:P00291` | Cloud removal in remote sensing images using generative adversarial networks and SAR-to-optical image translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r181"></a>181 | `paper:P00620` | FG-GAN: A Fine-Grained Generative Adversarial Network for Unsupervised SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r182"></a>182 | `paper:P03483` | Hybrid cGAN: Coupling Global and Local Features for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r183"></a>183 | `paper:P00622` | Multiscale Generative Adversarial Network Based on Wavelet Feature Learning for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r184"></a>184 | `paper:P03461` | SAR-to-Optical Image Translating Through Generate-Validate Adversarial Networks | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r185"></a>185 | `paper:P03517` | SAR-to-Optical Image Translation Based on Improved CGAN | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | Pattern Recognition 为期刊，不按会议过滤 |
+| <a id="r186"></a>186 | `paper:P00589` | SAR-to-Optical Image Translation via Neural Partial Differential Equations | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r187"></a>187 | `paper:P00619` | SAR-to-Optical Image Translation With Hierarchical Latent Features | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r188"></a>188 | `paper:P03459` | Comparative Analysis of Edge Information and Polarization on SAR-to-Optical Translation Based on Conditional Generative Adversarial Networks | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r189"></a>189 | `paper:P01055` | SAR-to-Optical Image Translation Based on Conditional Generative Adversarial Networks: Optimization, Opportunities and Limits | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r190"></a>190 | `paper:P02143` | A Novel PDE-Guided Complex Self-Supervised Diffusion Despeckling Net for SAR | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r191"></a>191 | `paper:P01940` | A Self-Supervised Conditional Diffusion Network With Multihead Wavelet Attention for Remote Sensing Image Denoising | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r192"></a>192 | `paper:P02149` | DA-PhysDiff: A Dual-Aware Physics-Informed Diffusion Model for SAR Image Despeckling | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r193"></a>193 | `doi:10.3390/rs18132116` | FEDM: Feature-Encoding Diffusion Model for Large-Scale SAR Image Inpainting | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r194"></a>194 | `paper:P03560` | HarmoniDiff-RS: Training-Free Diffusion Harmonization for Satellite Image Composition | Reference-Guided Generation and Editing | image_editing_restoration_completion | 文本编辑或图像协调条目归入 Reference-Guided Generation and Editing |
+| <a id="r195"></a>195 | `paper:P02006` | Image Dehazing of Unmanned Aerial Vehicles Based on Physics-Guided Diffusion Model | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r196"></a>196 | `paper:P01852` | OS-MambaDiff: An Optical-SAR Fusion Diffusion Framework With Mamba for Robust Cloud Removal in Remote Sensing Imagery | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r197"></a>197 | `paper:P01855` | PCRDiff: A Perlin Noise-Based Cloud Removal Diffusion Model for Remote Sensing Images | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r198"></a>198 | `paper:P01345` | RSEdit: Text-Guided Image Editing for Remote Sensing | Reference-Guided Generation and Editing | image_editing_restoration_completion | 依据原表的 arXiv 链接或预印本标记显示为 arXiv，不宣称正式会议录用；文本编辑或图像协调条目归入 Reference-Guided Generation and Editing |
+| <a id="r199"></a>199 | `paper:P02159` | SDE Diffusion Models for SAR Image Active Jamming Suppression With Pseudo-Paired SAR Images | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r200"></a>200 | `paper:P01876` | Stagewise and Controllable Cloud Removal via Residual Diffusion and Discriminative Calibration | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r201"></a>201 | `paper:P01951` | A Dual-Stage Residual Diffusion Model With Perceptual Decoding for Remote Sensing Image Dehazing | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r202"></a>202 | `paper:P01853` | Cloud Removal Method for Remote Sensing Images Based on SAR-Guided Conditional Diffusion Model and Style Adaptation | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r203"></a>203 | `paper:P01871` | Cloud Removal Using Patch-Based Improved Denoising Diffusion Models and High Gray-Value Attention Mechanism | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r204"></a>204 | `paper:P01854` | DBD-CR: Dual-Branch Diffusion Residual Reconstruction for Cloud Removal in Optical Remote Sensing Images | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r205"></a>205 | `paper:P01507` | Dehazing-DiffGAN: Sequential Fusion of Diffusion Models and GANs for High-Fidelity Remote Sensing Image Dehazing | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r206"></a>206 | `paper:P01954` | DFG-DDM: Deep Frequency-Guided Denoising Diffusion Model for Remote Sensing Image Dehazing | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r207"></a>207 | `paper:P00204` | Diffusion Posterior Sampling for SAR Despeckling | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r208"></a>208 | `paper:P01856` | DMDiff: A Dual-Branch Multimodal Conditional Guided Diffusion Model for Cloud Removal Through SAR-Optical Data Fusion | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r209"></a>209 | `paper:P00010` | Effective Cloud Removal for Remote Sensing Images by an Improved Mean-Reverting Denoising Model with Elucidated Design Space | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r210"></a>210 | `paper:P00207` | Efficient Diffusion Model for SAR-Assisted Optical Remote Sensing Image Cloud Removal | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r211"></a>211 | `paper:P03569` | Exploring Text-Guided Single Image Editing for Remote Sensing Images | Reference-Guided Generation and Editing | image_editing_restoration_completion | 文本编辑或图像协调条目归入 Reference-Guided Generation and Editing |
+| <a id="r212"></a>212 | `paper:P01399` | Image Characteristic-Guided Learning Method for Remote-Sensing Image Inpainting | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r213"></a>213 | `paper:P00775` | KAO: Kernel-Adaptive Optimization in Diffusion for Satellite Image | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r214"></a>214 | `paper:P00804` | Low-Light Remote Sensing Image Enhancement via Priors Guided End-to-End Latent Residual Diffusion | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r215"></a>215 | `paper:P00202` | Multimodal Diffusion Bridge With Attention-Based SAR Fusion for Satellite Image Cloud Removal | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r216"></a>216 | `paper:P00208` | Physics-Inspired Diffusion Model for SAR Image Despeckling | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r217"></a>217 | `paper:P01379` | Predictive Filtering Integrated Generative Remote Sensing Hyperspectral Image Inpainting | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r218"></a>218 | `paper:P00011` | SAR-Conditioned Consistency Model for Effective Cloud Removal in Remote Sensing Images | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r219"></a>219 | `paper:P00201` | SAR-DeCR: Latent Diffusion for SAR-Fused Thick Cloud Removal | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r220"></a>220 | `paper:P03442` | Scattering Guided Image Despeckling: A Score-Based Diffusion Approach in Frequency Domain | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r221"></a>221 | `paper:P00067` | COSMIC: Compress Satellite Images Efficiently via Diffusion Compensation | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r222"></a>222 | `paper:P02150` | Despeckling SAR Images With Log-Yeo--Johnson Transformation and Conditional Diffusion Models | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r223"></a>223 | `paper:P01151` | DiffCR: A Fast Conditional Diffusion Framework for Cloud Removal From Optical Satellite Images | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r224"></a>224 | `paper:P00338` | Exploring the Capability of Text-to-Image Diffusion Models With Structural Edge Guidance for Multispectral Satellite Image Inpainting | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r225"></a>225 | `paper:P02050` | SAR Image Despeckling Based on Denoising Diffusion Probabilistic Model and Swin Transformer | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r226"></a>226 | `paper:P02945` | Unpaired Remote Sensing Image Dehazing Using Enhanced Skip Attention-Based Generative Adversarial Networks with Rotation Invariance | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r227"></a>227 | `paper:P00432` | Cloud Removal in Remote Sensing Using Sequential-Based Diffusion Models | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r228"></a>228 | `paper:P03528` | Denoising Diffusion Probabilistic Feature-Based Network for Cloud Removal in Sentinel-2 Imagery | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r229"></a>229 | `paper:P03519` | SatelliteCloudGenerator: Controllable Cloud and Shadow Synthesis for Multi-Spectral Optical Satellite Images | Unconditional Generation and Data Synthesis | image_editing_restoration_completion | 按论文题名的云/阴影合成任务归入数据合成，而非去云恢复 |
+| <a id="r230"></a>230 | `paper:P01919` | Transformer Meets GAN: Cloud-Free Multispectral Image Reconstruction via Multisensor Data Fusion in Satellite Images | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r231"></a>231 | `paper:P03448` | Dehaze-AGGAN: Unpaired Remote Sensing Image Dehazing Using Enhanced Attention-Guide Generative Adversarial Networks | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r232"></a>232 | `paper:P03460` | PLFM: Pixel-Level Merging of Intermediate Feature Maps by Disentangling and Fusing Spatial and Temporal Data for Cloud Removal | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r233"></a>233 | `paper:P00287` | Cloud Removal with Fusion of High Resolution Optical and SAR Images Using Generative Adversarial Networks | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r234"></a>234 | `paper:P03434` | Single Satellite Optical Imagery Dehazing using SAR Image Prior Based on conditional Generative Adversarial Networks | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r235"></a>235 | `paper:P03510` | Cloud Removal of Optical Remote Sensing Imagery with Multitemporal SAR-Optical Data Using X-MTGAN | Restoration and Reconstruction | image_editing_restoration_completion | — |
+| <a id="r236"></a>236 | `paper:P00051` | A Diffusion Model With Efficient Sampling and Prior-Guidance for Remote Sensing Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r237"></a>237 | `paper:P01346` | AnyBand-Diff: A Unified Remote Sensing Image Generation and Band Repair Framework with Spectral Priors | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | 依据原表的 arXiv 链接或预印本标记显示为 arXiv，不宣称正式会议录用 |
+| <a id="r238"></a>238 | `paper:P01263` | Controllable Reference-Guided Diffusion With Local--Global Fusion for Real-World Remote Sensing Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r239"></a>239 | `external:emrdiffedgeawaremultimodalresidualdiffusionmodelforhyperspectral` | EMR-Diff: Edge-Aware Multimodal Residual Diffusion Model for Hyperspectral Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r241"></a>241 | `paper:P02541` | Hyperspectral Remote Sensing Image Synthesis via Superpixel and Energy-Guided Sampling-Based Diffusion Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r242"></a>242 | `paper:P00054` | Modulated Diffusion with Spatial-Spectral Disentangled Guidance for Hyperspectral Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r243"></a>243 | `paper:P02543` | PGDM: Physically Guided Diffusion Model for Land Surface Temperature Downscaling | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r244"></a>244 | `paper:P01794` | Remote Sensing Image Blind Super-Resolution via a Convolutional Neural Network-Guided Conditional Diffusion Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r245"></a>245 | `paper:P01783` | Remote Sensing Image Super-Resolution for Imbalanced Textures: A Texture-Aware Diffusion Framework | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r246"></a>246 | `paper:P00692` | S3-ESRGAN: Enhanced Super-Resolution Generative Adversarial Network for Remote Sensing Imagery Spatial Resolution Improvement---An Application Using Sentinel-2 and UAV Images | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r247"></a>247 | `paper:P00071` | Shift-Invariant Unsupervised Pansharpening Based on Diffusion Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r248"></a>248 | `paper:P00802` | Spatiotemporal Dual Priors Guided Diffusion for Remote Sensing Spatiotemporal Fusion | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r249"></a>249 | `arxiv:2603.00920` | Spectral Super-Resolution via Adversarial Unfolding and Data-Driven Spectrum Regularization: From Multispectral Satellite Data to NASA Hyperspectral Image | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r250"></a>250 | `paper:P01804` | A Novel VLM-Guided Diffusion Model for Remote Sensing Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r251"></a>251 | `paper:P01781` | Adaptive Semantic-Enhanced Denoising Diffusion Probabilistic Model for Remote Sensing Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r252"></a>252 | `paper:P02163` | DADSR: Degradation-Aware Diffusion Super-Resolution Model for Object-Level SAR Image | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r253"></a>253 | `paper:P03205` | DiffFuSR: Super-Resolution of all Sentinel-2 Multispectral Bands using Diffusion Models | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r254"></a>254 | `paper:P02085` | FrDiff: Framelet-Based Conditional Diffusion Model for Multispectral and Panchromatic Image Fusion | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r255"></a>255 | `paper:P03530` | HyperKING: Quantum-Classical Generative Adversarial Networks for Hyperspectral Image Restoration | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r256"></a>256 | `paper:P00019` | Hyperspectral Pansharpening via Diffusion Models with Iteratively Zero-Shot Guidance | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r257"></a>257 | `paper:P02253` | Learning Diffusion High-Quality Priors for Pan-Sharpening: A Two-Stage Approach With Time-Aware Adapter Fine-Tuning | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r258"></a>258 | `paper:P03541` | MBGPIN: Multi-Branch Generative Prior Integration Network for Super-Resolution Satellite Imagery | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r259"></a>259 | `paper:P00032` | NeurOp-Diff: Continuous Remote Sensing Image Super-Resolution via Neural Operator Diffusion | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | 将原表 CVF 首页替换为查证后的具体论文页 |
+| <a id="r260"></a>260 | `paper:P02173` | PanDiT: A Few-Step Diffusion Transformer for High-Fidelity and Efficient Pansharpening | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r261"></a>261 | `paper:P03458` | Progressive Conditional Diffusion Model for Multistage Spectral Restoration of Remote Sensing Image | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r262"></a>262 | `paper:P01118` | Research on Cross-Sensor Remote Sensing Image Super-Resolution Method Based on Diffusion Models | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r263"></a>263 | `paper:P00198` | RSSRGAN: A Residual Separable Generative Adversarial Network for Remote Sensing Image Super-Resolution Reconstruction | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r264"></a>264 | `paper:P00018` | Self-Learning Hyperspectral and Multispectral Image Fusion via Adaptive Residual Guided Subspace Diffusion Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r265"></a>265 | `paper:P03489` | Spatial-Spectral Aggregation Transformer With Diffusion Prior for Hyperspectral Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r266"></a>266 | `paper:P00069` | Super-Resolved 3-D Satellite Lidar Imaging of Earth via Generative Diffusion Models | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r267"></a>267 | `paper:P00053` | Taming a Diffusion Model to Revitalize Remote Sensing Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r268"></a>268 | `paper:P02197` | Transformer-Based Diffusion and Spectral Priors Model for Hyperspectral Pansharpening | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r269"></a>269 | `paper:P00050` | Trustworthy Super-Resolution of Multispectral Sentinel-2 Imagery With Latent Diffusion | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r270"></a>270 | `paper:P01795` | TTRD3: Texture Transfer Residual Denoising Dual Diffusion Model for Remote Sensing Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r271"></a>271 | `paper:P03443` | Two-Level Semantic-Driven Diffusion Based Hyperspectral Pansharpening | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r272"></a>272 | `paper:P00049` | A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r273"></a>273 | `paper:P01802` | A Spectral Diffusion Prior for Unsupervised Hyperspectral Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r274"></a>274 | `paper:P02165` | Diffusion Model With Disentangled Modulations for Sharpening Multispectral and Hyperspectral Images | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r275"></a>275 | `paper:P02168` | Empower Generalizability for Pansharpening Through Text-Modulated Diffusion Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r276"></a>276 | `paper:P02210` | Enhancing Hyperspectral Images via Diffusion Model and Group-Autoencoder Super-Resolution Network | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r277"></a>277 | `paper:P00023` | HIR-Diff: Unsupervised Hyperspectral Image Restoration Via Improved Diffusion Models | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r278"></a>278 | `paper:P01805` | ISPDiff: Interpretable Scale-Propelled Diffusion Model for Hyperspectral Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r279"></a>279 | `paper:P00989` | MFFAGAN: Generative Adversarial Network With Multilevel Feature Fusion Attention Mechanism for Remote Sensing Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r280"></a>280 | `paper:P03436` | PDDM: Prior-Guided Dual-Branch Diffusion Model for Pansharpening | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r281"></a>281 | `paper:P00813` | Spatiotemporal Fusion via Conditional Diffusion Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r282"></a>282 | `paper:P00066` | SSDiff: Spatial-spectral Integrated Diffusion Model for Remote Sensing Pansharpening | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r283"></a>283 | `paper:P01046` | Unmixing before Fusion: A Generalized Paradigm for Multi-Source-Based Hyperspectral Image Synthesis | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r284"></a>284 | `paper:P00022` | Unmixing Diffusion for Self-Supervised Hyperspectral Image Denoising | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r285"></a>285 | `paper:P02166` | Unsupervised Hyperspectral Pansharpening via Low-Rank Diffusion Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r286"></a>286 | `paper:P03455` | VSDM: Variable-Scale Diffusion Model Based on Dynamic Condition Guidance for Pansharpening | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r287"></a>287 | `paper:P00037` | DDS2M: Self-Supervised Denoising Diffusion Spatio-Spectral Model for Hyperspectral Image Restoration | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r288"></a>288 | `paper:P00048` | EDiffSR: An Efficient Diffusion Probabilistic Model for Remote Sensing Image Super-Resolution | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r289"></a>289 | `paper:P00036` | HSR-Diff: Hyperspectral Image Super-Resolution via Conditional Diffusion Models | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r290"></a>290 | `paper:P02167` | PanDiff: A Novel Pansharpening Method Based on Denoising Diffusion Probabilistic Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r291"></a>291 | `paper:P02882` | Remote Sensing Image Spatiotemporal Fusion Using a Generative Adversarial Network | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r292"></a>292 | `paper:P01238` | ChangeBridge: Spatiotemporal Image Generation with Multimodal Controls for Remote Sensing | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r293"></a>293 | `paper:P03515` | Generating Any Changes in the Noise Domain | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r294"></a>294 | `paper:P01233` | Generative Model for 2.5D-Assisted Future Urban Remote Sensing Image Synthesis | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r295"></a>295 | `paper:P03573` | RS-WorldModel: a Unified Model for Remote Sensing Understanding and Future Sense Forecasting | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r297"></a>297 | `paper:P03570` | TAMMs: Change Understanding and Forecasting in Satellite Image Time Series with Temporal-Aware Multimodal Models | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r298"></a>298 | `paper:P03447` | Change Mask-Guided Multi-Temporal Image Pair Generation Based on Diffusion Model | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r299"></a>299 | `paper:P01252` | ChangeDiff: A Multi-Temporal Change Detection Data Generator with Flexible Text Prompts via Diffusion Model | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r300"></a>300 | `paper:P03557` | HyperMM: Satellite Image Sequence Prediction via Hypergraph-Enhanced Motion Matrix | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r301"></a>301 | `paper:P03574` | Ringmo-SenseV2: Remote Sensing Foundation Model for Spatiotemporal Prediction Based on Multisource Heterogeneous Time-Series Data | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r302"></a>302 | `paper:P03562` | SirP: Semi-Recurrent Paradigm-Based Prediction Network for Satellite Image Sequences | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r303"></a>303 | `paper:P01392` | The Change You Want to Detect: Semantic Change Detection in Earth Observation with Hybrid Data Generation | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r304"></a>304 | `paper:P01245` | UP-Diff: Latent Diffusion Model for Remote Sensing Urban Prediction | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r305"></a>305 | `paper:P01326` | Changen2: Multi-Temporal Remote Sensing Generative Change Foundation Model | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r306"></a>306 | `paper:P02875` | Multi-Temporal SamplePair Generation for Building Change Detection Promotion in Optical Remote Sensing Domain Based on Generative Adversarial Network | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r307"></a>307 | `paper:P00039` | Scalable Multi-Temporal Remote Sensing Change Data Generation via Simulating Stochastic Change Process | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r1805"></a>1805 | `paper:P01242` | Remote Sensing Image Synthesis via Semantic Class-Specific Generative Adversarial Networks | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r1812"></a>1812 | `paper:P01378` | Multi-Task Generative Adversarial Networks for Semantic-Guided Remote Sensing Image Generation | Layout- and Structure-Conditioned Generation | layout_mask_object_semantic_control | — |
+| <a id="r1841"></a>1841 | `paper:P01163` | TerraDiT: Point-Conditioned Diffusion Transformer for Satellite Image Synthesis | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r1849"></a>1849 | `paper:P00546` | Generate Your Own Scotland: Satellite Image Generation Conditioned on Maps | Layout- and Structure-Conditioned Generation | map_vector_geospatial_metadata_control | — |
+| <a id="r3001"></a>3001 | `paper:P00422` | Latent Diffusion Approaches for Conditional Generation of Aerial Imagery: A Study | Text-to-Image Generation | text_caption_foundation_generation | — |
+| <a id="r3021"></a>3021 | `paper:P03531` | Synthesis of Synthetic Hyperspectral Images with Controllable Spectral Variability Using a Generative Adversarial Network | Physics- and Spectral-Prior-Guided Generation | text_caption_foundation_generation | 按论文题名的可控光谱高光谱合成任务归入物理/光谱先验，而非文本生成 |
+| <a id="r3305"></a>3305 | `paper:P03505` | SAR Image Generation via a Differentiable Framework Leveraging 3D Gaussian Splatting | Differentiable Rendering and Simulation | differentiable_rendering_simulation | — |
+| <a id="r3855"></a>3855 | `paper:P02156` | Ship-SAR: an improved ship image generation framework of synthetic aperture radar via denoising diffusion probabilistic model | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r3866"></a>3866 | `paper:P03497` | Physics-Informed Diffusion Models for SAR Ship Wake Generation from Text Prompts | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r3874"></a>3874 | `paper:P03536` | SAR-AE-SFP: SAR Imagery Adversarial Example in Real Physics domain with Target Scattering Feature Parameters | Physics- and Spectral-Prior-Guided Generation | scattering_polarimetric_sensor_priors | — |
+| <a id="r4729"></a>4729 | `paper:P03496` | OSCAR: Optical-Aware Semantic Control for Aleatoric Refinement in SAR-to-Optical Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4748"></a>4748 | `paper:P00081` | ADTransGAN: Detail-Enhanced and Cross-Modality Alignment-Optimized GAN for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4763"></a>4763 | `paper:P00077` | A brain-inspired approach for SAR-to-optical image translation based on diffusion models | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4766"></a>4766 | `paper:P02879` | Accelerating Diffusion for SAR-to-Optical Image Translation via Adversarial Consistency Distillation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4768"></a>4768 | `paper:P02402` | An unpaired SAR-to-optical image translation method based on Schrödinger bridge network and multi-scale feature fusion | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4770"></a>4770 | `paper:P00134` | Contextual Inference Feature Extraction Approach Based on Generative Adversarial Network for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4771"></a>4771 | `paper:P03542` | Cross-Modality Data Augmentation for Aerial Object Detection with Representation Learning | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4775"></a>4775 | `paper:P00998` | Seg-CycleGAN : SAR-to-optical image translation guided by a downstream task | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4776"></a>4776 | `paper:P00297` | ADD-UNet: An Adjacent Dual-Decoder UNet for SAR-to-Optical Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4777"></a>4777 | `paper:P02423` | CFRWD-GAN for SAR-to-Optical Image Translation | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4780"></a>4780 | `paper:P03493` | Optical and SAR Image Registration Based on Pseudo-SAR Image Generation Strategy | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | — |
+| <a id="r4782"></a>4782 | `paper:P03514` | SAR2EO: A High-Resolution Image Translation Framework with Denoising Enhancement | Cross-Modal Image Generation | cross_modal_cross_sensor_translation | 依据原表的 arXiv 链接或预印本标记显示为 arXiv，不宣称正式会议录用 |
+| <a id="r4784"></a>4784 | `paper:P03534` | Basis Pursuit Denoising via Recurrent Neural Network Applied to Super-Resolving SAR Tomography | Restoration and Reconstruction | cross_modal_cross_sensor_translation | — |
+| <a id="r5474"></a>5474 | `paper:P03456` | Degradation-Aware Metric Prompting for Hyperspectral Image Restoration | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5495"></a>5495 | `paper:P03540` | Sim2Real SAR Image Restoration: Metadata-Driven Models for Joint Despeckling and Sidelobes Reduction | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5506"></a>5506 | `paper:P03538` | Can Location Embeddings Enhance Super-Resolution of Satellite Imagery? | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5517"></a>5517 | `paper:P01534` | KANDiff: Kolmogorov–Arnold Network and Diffusion Model-Based Network for Hyperspectral and Multispectral Image Fusion | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5529"></a>5529 | `paper:P01340` | SeG-SR: Integrating Semantic Knowledge Into Remote Sensing Image Super-Resolution via Vision-Language Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5541"></a>5541 | `paper:P03440` | DTCNet: Transformer-CNN Distillation for Super-Resolution of Remote Sensing Image | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5546"></a>5546 | `paper:P03521` | PromptHSI: Universal Hyperspectral Image Restoration With Vision-Language Modulated Frequency Adaptation | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5555"></a>5555 | `paper:P03522` | Enhancing Remote Sensing Image Super-Resolution Guided by Bicubic-Downsampled Low-Resolution Image | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5556"></a>5556 | `paper:P00052` | Enhancing Remote Sensing Image Super-Resolution with Efficient Hybrid Conditional Diffusion Model | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5560"></a>5560 | `paper:P01597` | TESR: Two-Stage Approach for Enhancement and Super-Resolution of Remote Sensing Images | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5563"></a>5563 | `paper:P00725` | Super-Resolution for MIMO Array SAR 3-D Imaging Based on Compressive Sensing and Deep Neural Network | Restoration and Reconstruction | spatial_spectral_resolution_enhancement | — |
+| <a id="r5592"></a>5592 | `paper:P03487` | Satellite Video Super-Resolution with Implicit Interpolation-Based Alignment and Spatiotemporal Fusion | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r5615"></a>5615 | `paper:P03451` | MLKNet: Multi-Stage for Remote Sensing Image Spatiotemporal Fusion Network Based on a Large Kernel Attention | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r5617"></a>5617 | `paper:P03559` | TinyPredNet: A Lightweight Framework for Satellite Image Sequence Prediction | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r5618"></a>5618 | `paper:P03563` | Exploiting Spatial--Temporal Dynamics for Satellite Image Sequence Prediction | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r5619"></a>5619 | `paper:P03564` | Learning Spatial--Temporal Consistency for Satellite Image Sequence Prediction | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r5621"></a>5621 | `paper:P03452` | MSFusion: Multistage for Remote Sensing Image Spatiotemporal Fusion Based on Texture Transformer and Convolutional Neural Network | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r5622"></a>5622 | `paper:P02720` | MSTCGAN: Multiscale Time Conditional Generative Adversarial Network for Long-Term Satellite Image Sequence Prediction | Temporal Generation and Fusion | temporal_change_future_generation | — |
+| <a id="r5623"></a>5623 | `paper:P00232` | Satellite Image Future Landscape Prediction Using Conditional Adversarial Networks | Temporal Generation and Fusion | temporal_change_future_generation | — |
+
+## Dataset and Metric Resource Notes
+
+- **Git-10M**：对应 Text2Earth（Excel 第 89 行），名称、用途和数据入口来自[作者仓库](https://github.com/Chen-Yang-Liu/Text2Earth)；不另造一条论文记录。
+- **ChangeAnywhere-100K**：对应 ChangeAnywhere（第 77 行），数据入口来自[作者仓库](https://github.com/tangkai-RS/ChangeAnywhere)。
+- **SEN12MS**：对应第 32 行，使用[已查证的 arXiv 版本](https://arxiv.org/abs/1906.07789)和[作者资源仓库](https://github.com/zhu-xlab/SEN12MS)，单独列为数据资源。
+- **AVIID**：对应第 24 行；名称与下载入口对应[原论文](https://doi.org/10.34133/remotesensing.0096)及[作者仓库](https://github.com/silver-hzh/Averial-visible-to-infrared-image-translation)。
+- **DOTA / LEVIR-CD**：对应第 34 / 30 行，为下游监督和评测数据，不宣称它们是专门为生成设计的数据集。
+- 超分辨率数据集第 10 行保留原论文完整名称，暂不猜测简称或下载链接。
+- **CLIPScore / LPIPS / FID / SSIM** 分别对应第 29 / 35 / 36 / 38 行的原始指标论文；通用指标与专用遥感 benchmark 分开列出。
+
+## Deferred Records
+
+以下 21 条尚未写入正文。暂缓理由是本轮准入与核查结果，不是对论文整体质量的评价；可在补充证据后重新审查。
+
+| Excel row | Title | Original venue | Reason |
+| :---: | --- | --- | --- |
+| 11 | A Survey of Sample-Efficient Deep Learning for Change Detection in Remote Sensing: Tasks, Strategies, and Challenges | IEEE Geoscience and Remote Sensing Magazine | 背景文献或资源会议来源，未纳入本次生成文献主列表 |
+| 27 | Deep Learning for Unmanned Aerial Vehicle-Based Object Detection and Tracking: A Survey | IEEE Geoscience and Remote Sensing Magazine | 背景文献或资源会议来源，未纳入本次生成文献主列表 |
+| 31 | Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark | ISPRS Journal of Photogrammetry and Remote Sensing | 背景文献或资源会议来源，未纳入本次生成文献主列表 |
+| 33 | Demystifying MMD GANs | International Conference on Learning Representations | 背景文献或资源会议来源，未纳入本次生成文献主列表 |
+| 37 | Improved Techniques for Training GANs | Advances in Neural Information Processing Systems | 背景文献或资源会议来源，未纳入本次生成文献主列表 |
+| 240 | Fast Kernel-Space Diffusion for Remote Sensing Pansharpening | Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings | 会议未进入本次优质会议准入集或发表信息不明确 |
+| 296 | RSCDG: Remote Sensing Change/Damage Image Generator Based on Prior Foundation Model and Multimodal Reference Information | The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences | 会议未进入本次优质会议准入集或发表信息不明确 |
+| 1751 | Controllable Reference GuidedDiffusionwith Local Global Fusion for Real WorldRemote Sensing Image Super Resolution | google_scholar | 核查证据或论文身份不足 |
+| 3815 | A SAR Target Image Simulation Method With DNN Embedded to Calculate Electromagnetic Reflection | IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing | 核查证据或论文身份不足 |
+| 3847 | Enhancing SAR Image Generation Quality via Laplacian Pyramid-Enhanced VAE with Frequency Domain Loss | Lecture Notes in Networks and Systems | 会议未进入本次优质会议准入集或发表信息不明确 |
+| 3867 | Scattering Feature Guided GAN for Interpretable SAR Image Generation | 2025 IEEE Radar Conference (RadarConf25) | 核查证据或论文身份不足 |
+| 4268 | Harnessing conditional generative adversarial networks for SAR-to-optical image translation via auxiliary geospatial landscape pattern-augmentation | ISPRS Journal of Photogrammetry and Remote Sensing | 核查证据或论文身份不足 |
+| 4742 | Spectral-Feature-Guided Controllable Diffusion for SAR-to-Optical Satellite Imagery Generation in Wildfire Mapping | Pattern Recognition and Computer Vision | 会议未进入本次优质会议准入集或发表信息不明确 |
+| 4863 | RepVIS-GAN: A Reparameterized GAN-Based Network for Visible Image Retrieval from Geostationary Satellite Infrared Observations | ISPRS Journal of Photogrammetry and Remote Sensing | 核查证据或论文身份不足 |
+| 5464 | SAR-to-EO image translation with multi-kernel-size convolutions | International Journal of Remote Sensing | 核查证据或论文身份不足 |
+| 5466 | Causally Regularized Full-Resolution Channel Attention and Frequency Refinement for Cloud Removal in Satellite Imagery | ISPRS Journal of Photogrammetry and Remote Sensing | 核查证据或论文身份不足 |
+| 5467 | Satellite image inpainting with deep generative adversarial neural networks | IAES International Journal of Artificial Intelligence (IJ-AI) | 核查证据或论文身份不足 |
+| 5504 | A Temporal-Interval-Aware Diffusion Model for Spatiotemporal Fusion of Remote Sensing Imagery | 2025 15th Workshop on Hyperspectral Imaging and Signal Processing: Evolution in Remote Sensing | 核查证据或论文身份不足 |
+| 5539 | CompoHyDen: Hyperspectral Image Restoration via Nonconvex Componentwise Minimization | IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing | 核查证据或论文身份不足 |
+| 5542 | GAN-Based Dual Image Super Resolution for Satellite Imagery Decreasing Radiometric Uncertainty | ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences | 核查证据或论文身份不足 |
+| 5627 | Unpaired optical-to-SAR image translation with coordinate attention and differentiable histogram loss | International Journal of Remote Sensing | 核查证据或论文身份不足 |
