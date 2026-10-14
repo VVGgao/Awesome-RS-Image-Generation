@@ -16,6 +16,13 @@
 
 Contributions are welcome. Use the [paper submission template](.github/ISSUE_TEMPLATE/new-paper.md) or [dataset submission template](.github/ISSUE_TEMPLATE/new-dataset.md). See [CONTRIBUTING.md](CONTRIBUTING.md) for maintenance and publishing notes.
 
+<a id="inclusion-criteria"></a>
+## Inclusion Criteria / 收录标准
+
+- 收录与遥感图像生成相关、具有研究价值的期刊论文及领域认可的优质会议论文。
+- 不收录一般低质量 EI 会议论文；EI 检索本身不作为收录依据，也不据此排除领域认可的优质会议。
+- 允许收录相关 arXiv 预印本，并明确标注为 arXiv，不将其写成已正式发表的会议或期刊论文。
+
 <a id="news"></a>
 ## 🥳 News
 
@@ -40,6 +47,7 @@ _Issue navigation and statistics badges to be added after repository setup._
 <a id="contents"></a>
 ## 📑 Summary of Contents
 
+- [Inclusion Criteria / 收录标准](#inclusion-criteria)
 - [News](#news)
 - [Overview](#overview)
 - [Usage](#usage)
@@ -53,7 +61,7 @@ _Issue navigation and statistics badges to be added after repository setup._
   - [Reference-Guided Generation and Editing](#reference-guided)
   - [Unconditional Generation and Data Synthesis](#data-synthesis)
   - [Cross-Modal Image Generation](#cross-modal)
-  - [Restoration and Reconstruction — Optional Scope](#restoration)
+  - [Restoration and Reconstruction](#restoration)
   - [Other Generation Tasks](#other-tasks)
 - [Surveys](#surveys)
 - [Awesome Lists and Resources](#resources)
@@ -140,9 +148,7 @@ _Issue navigation and statistics badges to be added after repository setup._
 <!-- Add paper rows here. -->
 
 <a id="restoration"></a>
-### Restoration and Reconstruction — Optional Scope
-
-<!-- Keep or remove this section after deciding whether low-level restoration is in scope. -->
+### Restoration and Reconstruction
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |

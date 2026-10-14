@@ -33,6 +33,7 @@ assignees: ''
 
 ## 📌 Verification
 
+- [ ] The paper meets the [inclusion criteria](../../CONTRIBUTING.md#inclusion-criteria); relevant arXiv preprints are allowed, while general low-quality EI conference papers are excluded.
 - [ ] The paper URL points to the original publication or preprint.
 - [ ] The title, year, and publication status have been checked.
 - [ ] Code links are official, or their provenance is explicitly stated.

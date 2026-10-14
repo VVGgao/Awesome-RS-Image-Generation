@@ -33,7 +33,7 @@
 - **Text2Earth**：2025 年和 IEEE GRSM 对应[作者项目仓库](https://github.com/Chen-Yang-Liu/Text2Earth)中的期刊信息；Paper 保留原表 DOI。
 - **ChangeAnywhere**：按[所列论文版本](https://arxiv.org/abs/2404.08892)标为 arXiv 2024。[作者仓库](https://github.com/tangkai-RS/ChangeAnywhere)提供资源入口，但仍列有生成训练代码发布事项，故 README 使用 Repository 而不声称完整生成代码已发布。
 - **SAR-to-Optical via Neural PDE**：论文链接对应 [IJCAI 2022 原始页面](https://www.ijcai.org/proceedings/2022/229)；未补入未经确认的代码地址。
-- **HIR-Diff**：会议与方法描述对应 [CVPR 2024 论文页面](https://openaccess.thecvf.com/content/CVPR2024/html/Pang_HIR-Diff_Unsupervised_Hyperspectral_Image_Restoration_Via_Improved_Diffusion_Models_CVPR_2024_paper.html)及[作者仓库](https://github.com/LiPang/HIRDiff)。仅作为可选恢复分类的示例，不据此确定最终综述范围。
+- **HIR-Diff**：会议与方法描述对应 [CVPR 2024 论文页面](https://openaccess.thecvf.com/content/CVPR2024/html/Pang_HIR-Diff_Unsupervised_Hyperspectral_Image_Restoration_Via_Improved_Diffusion_Models_CVPR_2024_paper.html)及[作者仓库](https://github.com/LiPang/HIRDiff)。保留在恢复与重建分类中。
 - **UnmixDiff**：题名及 DOI 对应[作者实现仓库](https://github.com/yuyang95/UnmixingDM)中的引用信息；暂放 Other Generation Tasks，保留原表的物理／光谱分类供后续细分。
 
 这些示例不构成完整收录、排名或方法推荐。数据集、评测与参考引导生成等未填栏目继续保留原占位。
