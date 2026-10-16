@@ -1,6 +1,6 @@
 # 维护与发布说明
 
-当前根据原 Excel 整理了 341 篇独立文献与资源记录，不再仅为 sample。来源、字段修订和 21 条暂缓记录见 [Literature Sources](docs/literature-sources.md)。这不代表原表全部调研记录都已收录。
+当前根据原 Excel 整理了 341 篇独立文献与资源记录，并按三大类、十二子类维护。309 条文献保留原表子类，9 条恢复/增强对照与 5 条相关 3D 工作独立展示；该目录统计不等于稿件中的 262 篇方法统计。来源、字段修订和 21 条暂缓记录见 [Literature Sources](docs/literature-sources.md)。这不代表原表全部调研记录都已收录。
 
 <a id="inclusion-criteria"></a>
 ## 收录标准
@@ -13,12 +13,12 @@
 
 ## 填写内容
 
-- 在 README 的对应表格中添加条目，按年份从新到旧排序。
+- 先按 [Taxonomy](docs/taxonomy.md) 确定主要输入—输出关系和十二子类，再在 README 对应表格中添加条目，按年份从新到旧排序。混合方法的其他机制或应用作为辅助属性记录。
 - 论文名称链接到论文原始页面；Code、Download 链接到官方代码或数据来源。
 - 未公开或未核验的信息保持为空，不使用猜测的会议、年份、作者或链接。
 - 新条目在来源说明中记录 Excel 行号或可核验的原始来源。正文的 Source 链接用于追溯，不代替代码或下载入口。
 - `More` 列可在发布后链接到本仓库的条目 Issue。
-- 分类是暂定目录；确定综述范围后，可删除不适用的空分类，同时更新目录导航。
+- 一级分类固定为条件驱动、观测驱动、成像机理驱动；恢复/补全与空间—光谱增强属于观测驱动的正式范围。非生成式对照、相关 3D、数据、指标、综述和工作流分别列出，不强行分配方法子类。移动条目时同步更新来源页的 README category，不改原始子类或来源锚点。
 - 顶部横幅、综述总览图、更新记录、引用与联系方式均已留出位置。图片准备好后再添加本地资源目录。
 
 ## 接收投稿
@@ -28,7 +28,9 @@
 维护者可创建以下标签，再根据条目分配；模板不依赖任何预设标签：
 
 - 类型：`paper`、`dataset`、`benchmark`、`survey`
-- 任务：`text-to-image`、`layout-conditioned`、`reference-guided`、`data-synthesis`、`cross-modal`、`restoration`、`other-tasks`
+- 一级关系：`condition-driven`、`observation-driven`、`image-formation-driven`
+- 子类：使用 [Taxonomy](docs/taxonomy.md#twelve-subclasses) 表中的十二个 Source field 值；对照与相关工作使用 `comparator` 或 `related-3d`，不归入方法子类
+- 应用：`detection`、`segmentation`、`change-detection`、`mapping`、`augmentation` 等；应用标签不替代一级关系
 - 状态：`needs-verification`、`verified`
 
 Issue 记录与 README 表格需要人工维护，工作流不会自动收录文献或修改 README。

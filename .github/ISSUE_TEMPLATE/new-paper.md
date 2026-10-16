@@ -17,10 +17,14 @@ assignees: ''
 
 ## 📌 Task and Method
 
+**Primary family** (condition-driven / observation-driven / image-formation-driven / supporting):
+**Subclass** (see [taxonomy](../../docs/taxonomy.md#twelve-subclasses)):
 **Suggested README section**:
 **Input → Output modalities**:
+**Source observation / formation mechanism**:
 **Conditions / Controls**:
 **Method keywords**:
+**Downstream application tags** (not the primary family):
 
 ## 📌 Summary
 
@@ -34,6 +38,7 @@ assignees: ''
 ## 📌 Verification
 
 - [ ] The paper meets the [inclusion criteria](../../CONTRIBUTING.md#inclusion-criteria); relevant arXiv preprints are allowed, while general low-quality EI conference papers are excluded.
+- [ ] The primary family follows the input-output relation; comparators and related 3D work are clearly identified.
 - [ ] The paper URL points to the original publication or preprint.
 - [ ] The title, year, and publication status have been checked.
 - [ ] Code links are official, or their provenance is explicitly stated.
