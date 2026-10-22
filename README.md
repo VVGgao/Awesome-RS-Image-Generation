@@ -10,19 +10,9 @@
 
 <p align="center">Papers · Datasets · Benchmarks · Resources</p>
 
-> 保留 **341 篇独立文献与资源记录**。按综述三大类、十二子类展示：第一类 **64** 条、第二类核心 **81** 条、第三类 **39** 条；第二类另有 **119** 条补充和 **6** 条口径待确认记录移至[独立清单](docs/observation-supplementary.md)。第一类、第三类本轮未按同样渠道标准重筛。另保留原有对照、相关 3D、数据、评测与背景资源；当前 README 共 **218** 个表格条目，加上独立清单的 **125** 条，共保留原有 343 个展示条目。统计不等于稿件中的 262 篇方法。见 [来源](docs/literature-sources.md)、[分类](docs/taxonomy.md)和[第二类筛选依据](docs/observation-screening.md)。
-
 A curated collection of condition-driven, observation-driven, and image-formation-driven remote sensing image generation, with datasets, benchmarks, and clearly separated supporting literature.
 
 Contributions are welcome. Use the [paper submission template](.github/ISSUE_TEMPLATE/new-paper.md) or [dataset submission template](.github/ISSUE_TEMPLATE/new-dataset.md). See [CONTRIBUTING.md](CONTRIBUTING.md) for maintenance and publishing notes.
-
-<a id="inclusion-criteria"></a>
-## Inclusion Criteria / 收录标准
-
-- 收录与遥感图像生成相关、具有研究价值的期刊论文及领域认可的优质会议论文。
-- 不收录一般低质量 EI 会议论文；EI 检索本身不作为收录依据，也不据此排除领域认可的优质会议。
-- 允许收录相关 arXiv 预印本，并明确标注为 arXiv，不将其写成已正式发表的会议或期刊论文。
-- **第二类主列表采用更严格的顶刊 / A 会标准**；仅预印本、其他渠道和口径待确认条目保留在补充清单。该标准不追溯应用到第一类、第三类或资源栏目；详见[筛选政策](docs/observation-screening.md#policy)。
 
 <a id="news"></a>
 ## 🥳 News
@@ -62,7 +52,6 @@ Browse the task tables below. `Paper` points to the publication or preprint; `Mo
 <a id="contents"></a>
 ## 📑 Summary of Contents
 
-- [Inclusion Criteria / 收录标准](#inclusion-criteria)
 - [News](#news)
 - [Overview](#overview)
 - [Usage](#usage)
