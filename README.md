@@ -17,6 +17,8 @@ Contributions are welcome. Use the [paper submission template](.github/ISSUE_TEM
 <a id="news"></a>
 ## 🥳 News
 
+- **2026-11-05**: Updated the paper collection and added public implementations.
+
 - **2026-10-22**: Published the screened observation-driven core: 81 papers (22 / 14 / 34 / 11). Archived 119 supplementary and 6 pending records with source links; preserved all 341 records and left the other two families unchanged.
 
 - **2026-10-16**: Reorganized the collection into three generation families and twelve subclasses. Preserved all 341 source records and existing paper/code links; separated restoration/enhancement comparators and related 3D work.
@@ -34,11 +36,9 @@ The primary input-output relation determines the family; backbone names and down
 
 | Family | Primary input → generated product | README method entries | Subclasses |
 | --- | --- | :---: | :---: |
-| [Condition-Driven](#condition-driven) | Text, layout, map, metadata, or task control → RS imagery | 64 | 4 |
-| [Observation-Driven](#observation-driven) | Existing RS observation → translated, restored, enhanced, or temporal imagery | 81 | 4 |
-| [Image-Formation-Driven](#image-formation-driven) | Operational geometry, acquisition, or sensor mechanism → RS imagery | 39 | 4 |
-
-Counts describe the current README method tables, not a newly full-text-verified method census. Only the observation-driven family received this venue filter; its source index still contains 206 records, with 125 moved to the [supplementary/pending list](docs/observation-supplementary.md). [Supporting comparators and related 3D work](#supporting-literature), generic metrics, and workflow resources remain separate. See [definitions and source-index counts](docs/taxonomy.md).
+| [Condition-Driven](#condition-driven) | Text, layout, map, metadata, or task control → RS imagery | 71 | 4 |
+| [Observation-Driven](#observation-driven) | Existing RS observation → translated, restored, enhanced, or temporal imagery | 106 | 4 |
+| [Image-Formation-Driven](#image-formation-driven) | Operational geometry, acquisition, or sensor mechanism → RS imagery | 45 | 4 |
 
 _Overview figure to be added._
 
@@ -97,7 +97,7 @@ These include generation-training data, translation data, and downstream supervi
 | Year | Venue | Name | Task / Modality | Paper | Download | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
 | 2025 | IEEE GRSM | Git-10M | Text / image / geospatial metadata; text-to-image training | [Paper](https://doi.org/10.1109/mgrs.2025.3560455) | [Project / Data](https://github.com/Chen-Yang-Liu/Text2Earth) | [Source](docs/literature-sources.md#r89) |
-| 2019 | arXiv | SEN12MS | Paired SAR / multispectral / land-cover data | [Paper](https://arxiv.org/abs/1906.07789) | [Project / Data](https://github.com/zhu-xlab/SEN12MS) | [Source](docs/literature-sources.md#r32) |
+| 2019 | ISPRS Annals | SEN12MS | Paired SAR / multispectral / land-cover data | [Paper](https://doi.org/10.5194/isprs-annals-IV-2-W7-153-2019) | [Project / Data](https://github.com/zhu-xlab/SEN12MS) | [Source](docs/literature-sources.md#r32) |
 
 <a id="task-specific-datasets"></a>
 ### Task-Specific Datasets
@@ -105,7 +105,6 @@ These include generation-training data, translation data, and downstream supervi
 | Year | Venue | Name | Task / Modality | Paper | Download | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
 | 2025 | IEEE JSTARS | A Large-Scale Aerial and Satellite Image Dataset for Deep Learning-Based Image Super-Resolution of Very High-Resolution Remote Sensing Imagery | Very-high-resolution image super-resolution | [Paper](https://doi.org/10.1109/jstars.2025.3610081) | — | [Source](docs/literature-sources.md#r10) |
-| 2024 | arXiv | ChangeAnywhere-100K | Synthetic bi-temporal optical image pairs; change detection | [Paper](https://arxiv.org/abs/2404.08892) | [Project / Data](https://github.com/tangkai-RS/ChangeAnywhere) | [Source](docs/literature-sources.md#r77) |
 | 2023 | Journal of Remote Sensing | AVIID | Aerial visible-to-infrared translation | [Paper](https://doi.org/10.34133/remotesensing.0096) | [Project / Data](https://github.com/silver-hzh/Averial-visible-to-infrared-image-translation) | [Source](docs/literature-sources.md#r24) |
 | 2020 | Remote Sensing | LEVIR-CD | Optical image-pair change detection; downstream evaluation | [Paper](https://doi.org/10.3390/rs12101662) | — | [Source](docs/literature-sources.md#r30) |
 | 2018 | CVPR | DOTA | Aerial object detection; layout supervision | [Paper](https://openaccess.thecvf.com/content_cvpr_2018/html/Xia_DOTA_A_Large-Scale_CVPR_2018_paper.html) | — | [Source](docs/literature-sources.md#r34) |
@@ -136,7 +135,7 @@ These are original papers for general-purpose evaluation metrics, not remote-sen
 <a id="papers"></a>
 ## 📄 Papers
 
-Organized by three primary input-output relations and twelve subclasses. Entries retain their existing source-subclass assignments; this reorganization is not a new full-text eligibility audit. See [taxonomy and boundary rules](docs/taxonomy.md).
+Organized into three generation families and twelve task groups.
 
 <a id="condition-driven"></a>
 ### Condition-Driven Image Generation
@@ -150,9 +149,14 @@ Non-target-image controls specify the requested scene: text, layouts, masks, map
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
 | 2026 | AAAI | Text / caption / foundation model | Any2RSI: Controllable Remote Sensing Text-to-Image Generation via Any Control and Enriched Description | [Paper](https://doi.org/10.1609/aaai.v40i15.38283) | — | [Source](docs/literature-sources.md#r80) |
 | 2026 | arXiv | Text / caption / foundation model | Contrastive Parameter Disentanglement for Multi-Modal Remote Sensing Image Generation | [Paper](https://arxiv.org/abs/2607.23673) | — | [Source](docs/literature-sources.md#r81) |
+| 2026 | arXiv | Text / caption / foundation model | GeoCore-9B: Towards Geo-Aware Generative Foundation Models in Earth Observation | [Paper](https://arxiv.org/abs/2608.01896) | — | [Source](docs/literature-sources.md#s2-r15) |
 | 2026 | IEEE TGRS | Text / caption / foundation model | Language-Informed Hyperspectral Image Synthesis for Imbalanced-Small Sample Classification via Semi-Supervised Conditional Diffusion Model | [Paper](https://doi.org/10.1109/tgrs.2026.3651679) | — | [Source](docs/literature-sources.md#r82) |
+| 2026 | ISPRS JPRS | Text / caption / foundation model | MMDiff: Multi-modal remote sensing image generation via cross-modality spatial feature transfer | [Paper](https://doi.org/10.1016/j.isprsjprs.2026.08.018) | — | [Source](docs/literature-sources.md#s2-r18) |
 | 2026 | IEEE JSTARS | Text / caption / foundation model | Multiple Conditions-Guided Diffusion Model for Remote Sensing Image Generation | [Paper](https://ieeexplore.ieee.org/document/11415370/) | — | [Source](docs/literature-sources.md#r83) |
 | 2026 | ISPRS JPRS | Text / caption / foundation model | Quantitative Comparison of Fine-Tuning Techniques for Pretrained Latent Diffusion Models in the Generation of Unseen SAR Images | [Paper](https://doi.org/10.1016/j.isprsjprs.2026.02.018) | — | [Source](docs/literature-sources.md#r84) |
+| 2026 | ECCV | Text / caption / foundation model | SGP²: Coarse-to-Fine Controllable Multi-modal Remote Sensing Image Generation | [Paper](https://doi.org/10.1007/978-3-032-37255-0_1) | — | [Source](docs/literature-sources.md#s2-r36) |
+| 2026 | Remote Sensing | Text-conditioned landslide synthesis | The Capacity of Generative Models to Synthesize Regional Landslide and Non-Landslide Remote Sensing Imagery Under Data-Scarce Scenarios: Insights from Multimodal Foundation Models | [Paper](https://doi.org/10.3390/rs18183100) | — | [Source](docs/literature-sources.md#s2-r5) |
+| 2026 | IEEE TGRS | Text / caption / foundation model | UniEarth: A Unified Foundation Model for Remote Sensing Image Generation and Understanding | [Paper](https://doi.org/10.1109/TGRS.2026.3725838) | — | [Source](docs/literature-sources.md#s2-r19) |
 | 2025 | ICASSP | Text / caption / foundation model | DiffRS: An Extensible Diffusion Model for Remote Sensing Image Generation | [Paper](https://doi.org/10.1109/icassp49660.2025.10887825) | — | [Source](docs/literature-sources.md#r85) |
 | 2025 | IEEE JSTARS | Text / caption / foundation model | HDP-Net: Hierarchical Dynamic Prototype Learning for Text-Based Remote Sensing Image Generation | [Paper](https://doi.org/10.1109/jstars.2025.3626406) | — | [Source](docs/literature-sources.md#r86) |
 | 2025 | Remote Sensing | Text / caption / foundation model | IFADiff: Training-Free Hyperspectral Image Generation via Integer--Fractional Alternating Diffusion Sampling | [Paper](https://doi.org/10.3390/rs17233867) | — | [Source](docs/literature-sources.md#r87) |
@@ -173,14 +177,19 @@ Non-target-image controls specify the requested scene: text, layouts, masks, map
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2026 | Remote Sensing | Geo-topology / oriented object control | Boosting Multi-Class SAR Oriented Object Detection via Geo-Topology-Guided Diffusion Synthesis | [Paper](https://doi.org/10.3390/rs18183128) | — | [Source](docs/literature-sources.md#s2-r6) |
 | 2026 | IEEE JSTARS | Layout / mask / object control | CondFusionSAR: A Bidirectional MultiConditional Fusion Network for Generating High-Resolution SAR Images With Complex Backgrounds | [Paper](https://doi.org/10.1109/jstars.2026.3677792) | — | [Source](docs/literature-sources.md#r39) |
 | 2026 | IEEE JSTARS | Layout / mask / object control | Controllable Remote Sensing Image Generation With Semantic Consistency via Diffusion Models | [Paper](https://doi.org/10.1109/jstars.2026.3689363) | — | [Source](docs/literature-sources.md#r40) |
+| 2026 | IEEE JSTARS | Layout / mask / object control | Dynamic Self-Attention Guidance for Layout-Consistent and Diverse Remote Sensing Image Generation | [Paper](https://doi.org/10.1109/JSTARS.2026.3731653) | — | [Source](docs/literature-sources.md#s2-r16) |
+| 2026 | IEEE GRSL | Layout / mask / object control | Graph2Scene: Generating Remote Sensing Imagery and Labels via Scene Graphs and Low-Rank Representation | [Paper](https://doi.org/10.1109/LGRS.2026.3718905) | — | [Source](docs/literature-sources.md#s2-r21) |
 | 2026 | arXiv | Layout / mask / object control | RSGen: Enhancing Layout-Driven Remote Sensing Image Generation with Diverse Edge Guidance | [Paper](https://arxiv.org/abs/2603.15484) | — | [Source](docs/literature-sources.md#r41) |
+| 2026 | IJRS | Class-conditioned SAR synthesis; wavelet GAN | SAR Image Generation Method Based on Multi-Scale Wavelet Enhanced Generative Adversarial Network | [Paper](https://doi.org/10.1080/01431161.2026.2726573) | — | [Source](docs/literature-sources.md#s2-r7) |
+| 2026 | arXiv | Class-conditioned agricultural imagery | Synthetic Data Augmentation for Satellite-Based Analysis of Battle-Damaged Agricultural Fields in Ukraine | [Paper](https://arxiv.org/abs/2608.16380) | — | [Source](docs/literature-sources.md#s2-r12) |
 | 2026 | IEEE TGRS | Layout / mask / object control | TerraGen: A Unified Multi-Task Layout Generation Framework for Remote Sensing Data Augmentation | [Paper](https://doi.org/10.1109/tgrs.2026.3695344) | — | [Source](docs/literature-sources.md#r42) |
 | 2026 | IEEE TGRS | Layout / mask / object control | Wildfire-Diff: A Controllable Diffusion Framework for Synchronized Generation of Remote Sensing Wildfire Images and Masks | [Paper](https://doi.org/10.1109/tgrs.2026.3690189) | — | [Source](docs/literature-sources.md#r43) |
 | 2025 | CVPR | Layout / mask / object control | AeroGen: Enhancing Remote Sensing Object Detection with Diffusion-Driven Data Generation | [Paper](https://doi.org/10.1109/cvpr52734.2025.00342) | [Code](https://github.com/Sonettoo/AeroGen) | [Source](docs/literature-sources.md#r44) |
 | 2025 | IEEE TGRS | Layout / mask / object control | Cascaded Autoregressive Diffusion Models for Remote Sensing Scene Generation | [Paper](https://doi.org/10.1109/tgrs.2025.3622225) | — | [Source](docs/literature-sources.md#r45) |
-| 2025 | IEEE TGRS | Layout / mask / object control | CC-Diff++: Spatially Controllable Text-to-Image Synthesis for Remote Sensing With Enhanced Contextual Coherence | [Paper](https://doi.org/10.1109/tgrs.2025.3616376) | — | [Source](docs/literature-sources.md#r46) |
+| 2025 | IEEE TGRS | Layout / mask / object control | CC-Diff++: Spatially Controllable Text-to-Image Synthesis for Remote Sensing With Enhanced Contextual Coherence | [Paper](https://doi.org/10.1109/tgrs.2025.3616376) | [Code](https://github.com/AZZMM/CC-Diff) | [Source](docs/literature-sources.md#r46) |
 | 2025 | IEEE GRSL | Layout / mask / object control | Diverse Instance Generation via Diffusion Models for Enhanced Few-Shot Object Detection in Remote Sensing Images | [Paper](https://doi.org/10.1109/lgrs.2025.3624148) | — | [Source](docs/literature-sources.md#r47) |
 | 2025 | ICCV | Layout / mask / object control | FICGen: Frequency-Inspired Contextual Disentanglement for Layout-driven Degraded Image Generation | [Paper](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_FICGen_Frequency-Inspired_Contextual_Disentanglement_for_Layout-driven_Degraded_Image_Generation_ICCV_2025_paper.html) | — | [Source](docs/literature-sources.md#r48) |
 | 2025 | IEEE GRSL | Layout / mask / object control | Multi-Grained Guided Diffusion for Quantity-Controlled Remote Sensing Object Generation | [Paper](https://doi.org/10.1109/lgrs.2025.3565817) | — | [Source](docs/literature-sources.md#r49) |
@@ -190,7 +199,6 @@ Non-target-image controls specify the requested scene: text, layouts, masks, map
 | 2025 | IGARSS | Layout / mask / object control | Remote Sensing Image Synthesis via Semantic Class-Specific Generative Adversarial Networks | [Paper](https://doi.org/10.1109/igarss55030.2025.11243533) | — | [Source](docs/literature-sources.md#r1805) |
 | 2025 | IEEE GRSM | Layout / mask / object control | Satellite Image Synthesis From Street View With Fine-Grained Spatial Textual Guidance: A Novel Framework | [Paper](https://doi.org/10.1109/mgrs.2025.3585358) | — | [Source](docs/literature-sources.md#r53) |
 | 2025 | Remote Sensing | Layout / mask / object control | Synthesizing Remote Sensing Images from Land Cover Annotations via Graph Prior Masked Diffusion | [Paper](https://doi.org/10.3390/rs17132254) | — | [Source](docs/literature-sources.md#r54) |
-| 2024 | arXiv | Layout / mask / object control | CC-Diff: Enhancing Contextual Coherence in Remote Sensing Image Synthesis | [Paper](https://arxiv.org/abs/2412.08464) | — | [Source](docs/literature-sources.md#r55) |
 | 2024 | CVPR | Layout / mask / object control | SatSynth: Augmenting Image-Mask Pairs Through Diffusion Models for Aerial Semantic Segmentation | [Paper](https://doi.org/10.1109/cvpr52733.2024.02615) | — | [Source](docs/literature-sources.md#r56) |
 | 2023 | IGARSS | Layout / mask / object control | Multi-Task Generative Adversarial Networks for Semantic-Guided Remote Sensing Image Generation | [Paper](https://doi.org/10.1109/igarss52108.2023.10282185) | — | [Source](docs/literature-sources.md#r1812) |
 | 2023 | IEEE TGRS | Layout / mask / object control | Remote Sensing Image Synthesis via Semantic Embedding Generative Adversarial Networks | [Paper](https://doi.org/10.1109/tgrs.2023.3279663) | — | [Source](docs/literature-sources.md#r57) |
@@ -212,7 +220,6 @@ Non-target-image controls specify the requested scene: text, layouts, masks, map
 | 2025 | Remote Sensing | Map / geospatial metadata control | OP-Gen: A High-Quality Remote Sensing Image Generation Algorithm Guided by OSM Images and Textual Prompts | [Paper](https://doi.org/10.3390/rs17071226) | — | [Source](docs/literature-sources.md#r66) |
 | 2025 | arXiv | Map / geospatial metadata control | OSMGen: Highly Controllable Satellite Image Synthesis using OpenStreetMap Data | [Paper](https://arxiv.org/abs/2511.00345) | — | [Source](docs/literature-sources.md#r67) |
 | 2024 | ICLR | Map / geospatial metadata control | DiffusionSat: A Generative Foundation Model for Satellite Imagery | [Paper](https://arxiv.org/abs/2312.03606) | [Code](https://github.com/samar-khanna/DiffusionSat) | [Source](docs/literature-sources.md#r68) |
-| 2023 | arXiv | Map / geospatial metadata control | Generate Your Own Scotland: Satellite Image Generation Conditioned on Maps | [Paper](https://arxiv.org/abs/2308.16648) | — | [Source](docs/literature-sources.md#r1849) |
 | 2022 | IEEE TGRS | Map / geospatial metadata control | Synthesizing Optical and SAR Imagery From Land Cover Maps and Auxiliary Raster Data | [Paper](https://doi.org/10.1109/tgrs.2021.3068532) | — | [Source](docs/literature-sources.md#r69) |
 
 <a id="data-synthesis"></a>
@@ -227,7 +234,6 @@ Non-target-image controls specify the requested scene: text, layouts, masks, map
 | 2025 | IEEE TGRS | Task-oriented data synthesis | Diffusion-Noise-Based Augmentation for Long-Tailed Remote Sensing Image Classification | [Paper](https://doi.org/10.1109/tgrs.2025.3568812) | — | [Source](docs/literature-sources.md#r74) |
 | 2025 | arXiv | Task-oriented data synthesis | EarthSynth: Generating Informative Earth Observation with Diffusion Models | [Paper](https://arxiv.org/abs/2505.12108) | — | [Source](docs/literature-sources.md#r75) |
 | 2024 | Remote Sensing | Task-oriented data synthesis | A Two-Stage SAR Image Generation Algorithm Based on GAN with Reinforced Constraint Filtering and Compensation Techniques | [Paper](https://doi.org/10.3390/rs16111963) | — | [Source](docs/literature-sources.md#r76) |
-| 2024 | arXiv | Task-oriented data synthesis | ChangeAnywhere: Sample Generation for Remote Sensing Change Detection via Semantic Latent Diffusion Model | [Paper](https://arxiv.org/abs/2404.08892) | [Repository](https://github.com/tangkai-RS/ChangeAnywhere) | [Source](docs/literature-sources.md#r77) |
 | 2024 | Remote Sensing | Task-oriented data synthesis | Coarse-to-Fine Structure and Semantic Learning for Single-Sample SAR Image Generation | [Paper](https://doi.org/10.3390/rs16173326) | — | [Source](docs/literature-sources.md#r78) |
 | 2023 | IEEE TGRS | Task-oriented data synthesis | Efficient and Controllable Remote Sensing Fake Sample Generation Based on Diffusion Model | [Paper](https://doi.org/10.1109/tgrs.2023.3268331) | — | [Source](docs/literature-sources.md#r79) |
 
@@ -237,41 +243,52 @@ Non-target-image controls specify the requested scene: text, layouts, masks, map
 
 Existing remote-sensing observations constrain translated, edited, restored, completed, enhanced, or temporal products. Restoration and reconstruction are part of the main scope; preserve source evidence and report uncertainty where applicable.
 
-**Core list: 81 papers** after venue/publication screening of 206 indexed records (2026-10-21 snapshot; published here 2026-10-22). Subclasses contain **22 / 14 / 34 / 11** papers. [119 supplementary and 6 venue-scope-pending records](docs/observation-supplementary.md) remain traceable; see the [screening policy and per-paper evidence](docs/observation-screening.md). This is not a new full-text method audit; recent additions remain candidates outside this list.
-
 <a id="cross-modal"></a>
 #### Cross-Modal and Cross-Sensor Translation
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2026 | IEEE JSTARS | Cross-modal / cross-sensor translation | A Frequency-Coupled Latent Space Facilitates Synthetic-to-Measured SAR Image Translation | [Paper](https://doi.org/10.1109/JSTARS.2026.3730693) | [Code](https://github.com/Jordan-Liao/LFCS2M) | [Source](docs/literature-sources.md#s2-r24) |
 | 2026 | ICML | Cross-modal / cross-sensor translation | Any2Any: Unified Arbitrary Modality Translation for Remote Sensing | [Paper](https://proceedings.mlr.press/v306/chen26go.html) | — | [Source](docs/literature-sources.md#r132) |
+| 2026 | IEEE TCSVT | Cross-modal / cross-sensor translation | C-DiffSET: Leveraging Latent Diffusion for SAR-to-EO Image Translation with Confidence-Guided Reliable Object Generation | [Paper](https://doi.org/10.1109/TCSVT.2026.3701447) | [Code](https://github.com/KAIST-VICLab/C-DiffSET) | [Source](docs/literature-sources.md#r159) |
+| 2026 | ISPRS JPRS | Cross-modal / cross-sensor translation | Conditional diffusion model with residual decomposition generation strategy for SAR to optical image translation | [Paper](https://doi.org/10.1016/j.isprsjprs.2026.08.043) | [Code](https://github.com/Mizar29/Residual-Decomposition-Generation-Strategy-for-S2O) | [Source](docs/literature-sources.md#s2-r27) |
 | 2026 | IEEE TGRS | Cross-modal / cross-sensor translation | CycleMamba: Cycle-Consistent Learning for Aerial Visible-to-Infrared Image Translation | [Paper](https://doi.org/10.1109/tgrs.2026.3656650) | — | [Source](docs/literature-sources.md#r134) |
+| 2026 | IEEE JSTARS | Cross-modal / cross-sensor translation | D-PolTransGAN: Scattering Guided Hybrid Transformer-GAN for SAR-Optical Image Translation Using Dual Polarization SAR | [Paper](https://doi.org/10.1109/jstars.2026.3691677) | [Code](https://github.com/JagratiTalreja01/D-PolTransGAN) | [Source](docs/literature-sources.md#r135) |
 | 2026 | IEEE TGRS | Cross-modal / cross-sensor translation | Diffusion Bridge Generation of Visible Light-to-Infrared Images Based on Multiscale Enhancement From Aerial Photography Perspective | [Paper](https://doi.org/10.1109/tgrs.2026.3677822) | — | [Source](docs/literature-sources.md#r137) |
 | 2026 | IEEE TIP | Cross-modal / cross-sensor translation | KeypointDiff: Keypoints-Guided Diffusion Model for Unpaired Object-Level SAR-to-Optical Aircraft Image Translation | [Paper](https://doi.org/10.1109/TIP.2026.3703726) | — | [Source](docs/literature-sources.md#r156) |
+| 2026 | IEEE TGRS | Cross-modal / cross-sensor translation | SSDiffNet: Semantic-Guided and Structure-Consistent Diffusion for Aerial Visible-to-Infrared Image Translation | [Paper](https://doi.org/10.1109/TGRS.2026.3732191) | — | [Source](docs/literature-sources.md#s2-r30) |
+| 2025 | IEEE GRSL | Cross-modal / cross-sensor translation | Conditional Brownian Bridge Diffusion Model for VHR SAR to Optical Image Translation | [Paper](https://doi.org/10.1109/lgrs.2025.3562401) | [Code](https://github.com/egshkim/ConditionalBBDM-for-VHR-SAR-to-Optical) | [Source](docs/literature-sources.md#r142) |
 | 2025 | IEEE TGRS | Cross-modal / cross-sensor translation | Cross-Modal Visible-to-Infrared Image Translation in Remote Sensing Guided by Thermal Features | [Paper](https://doi.org/10.1109/tgrs.2025.3579267) | — | [Source](docs/literature-sources.md#r143) |
 | 2025 | IEEE TGRS | Cross-modal / cross-sensor translation | DOGAN: DINO-Based Optical-Prior-Driven GAN for SAR-to-Optical Image Translation | [Paper](https://doi.org/10.1109/tgrs.2025.3606979) | — | [Source](docs/literature-sources.md#r144) |
 | 2025 | IEEE TGRS | Cross-modal / cross-sensor translation | HVT-cGAN: Hybrid Vision Transformer cGAN for SAR-to-Optical Image Translation | [Paper](https://doi.org/10.1109/tgrs.2024.3523040) | — | [Source](docs/literature-sources.md#r147) |
 | 2025 | ICCV | Cross-modal / cross-sensor translation | Leveraging BEV Paradigm for Ground-to-Aerial Image Synthesis | [Paper](https://openaccess.thecvf.com/content/ICCV2025/html/Ye_Leveraging_BEV_Paradigm_for_Ground-to-Aerial_Image_Synthesis_ICCV_2025_paper.html) | — | [Source](docs/literature-sources.md#r149) |
 | 2025 | IEEE TGRS | Cross-modal / cross-sensor translation | RLI-DM: Robust Layout-Based Iterative Diffusion Model for SAR-to-RGB Image Translation | [Paper](https://doi.org/10.1109/tgrs.2025.3613938) | — | [Source](docs/literature-sources.md#r150) |
 | 2025 | IEEE TIP | Cross-modal / cross-sensor translation | S3OIL: Semi-Supervised SAR-to-Optical Image Translation via Multi-Scale and Cross-Set Matching | [Paper](https://doi.org/10.1109/tip.2025.3616576) | — | [Source](docs/literature-sources.md#r151) |
+| 2025 | IEEE GRSL | Cross-modal / cross-sensor translation | Seg-CycleGAN : SAR-to-optical image translation guided by a downstream task | [Paper](https://doi.org/10.1109/LGRS.2025.3538868) | [Code](https://github.com/NWPU-LHH/Seg-CycleGAN) | [Source](docs/literature-sources.md#r4775) |
+| 2025 | IEEE JSTARS | Cross-modal / cross-sensor translation | Simulating Nighttime Visible Satellite Imagery of Tropical Cyclones Using Conditional Generative Adversarial Networks | [Paper](https://doi.org/10.1109/jstars.2025.3567074) | [Code](https://github.com/Dapiya/AI-VIS) | [Source](docs/literature-sources.md#r154) |
 | 2025 | ICCV | Cross-modal / cross-sensor translation | TerraMind: Large-Scale Generative Multimodality for Earth Observation | [Paper](https://openaccess.thecvf.com/content/ICCV2025/html/Jakubik_TerraMind_Large-Scale_Generative_Multimodality_for_Earth_Observation_ICCV_2025_paper.html) | [Code](https://github.com/IBM/terramind) | [Source](docs/literature-sources.md#r155) |
 | 2025 | IEEE TGRS | Cross-modal / cross-sensor translation | USTNet: A U-Net Swin Transformer Network for Aerial Visible-to-Infrared Image Translation | [Paper](https://doi.org/10.1109/tgrs.2025.3604474) | — | [Source](docs/literature-sources.md#r157) |
 | 2024 | IEEE TGRS | Cross-modal / cross-sensor translation | Conditional Diffusion Model With Spatial-Frequency Refinement for SAR-to-Optical Image Translation | [Paper](https://doi.org/10.1109/tgrs.2024.3491826) | — | [Source](docs/literature-sources.md#r161) |
 | 2024 | IEEE TGRS | Cross-modal / cross-sensor translation | DR-AVIT: Toward Diverse and Realistic Aerial Visible-to-Infrared Image Translation | [Paper](https://doi.org/10.1109/tgrs.2024.3405989) | — | [Source](docs/literature-sources.md#r163) |
 | 2024 | IEEE TGRS | Cross-modal / cross-sensor translation | Integrating Multitemporal SAR and Optical Information for Missing Optical Imagery Generation | [Paper](https://doi.org/10.1109/tgrs.2024.3451558) | — | [Source](docs/literature-sources.md#r166) |
+| 2024 | IEEE GRSL | Cross-modal / cross-sensor translation | Scene-Embedded Generative Adversarial Networks for Semi-Supervised SAR-to-Optical Image Translation | [Paper](https://doi.org/10.1109/lgrs.2024.3471553) | [Code](https://github.com/lr-dddd/ScE-GAN) | [Source](docs/literature-sources.md#r175) |
 | 2023 | IEEE TGRS | Cross-modal / cross-sensor translation | CFCA-SET: Coarse-to-Fine Context-Aware SAR-to-EO Translation With Auxiliary Learning of SAR-to-NIR Translation | [Paper](https://doi.org/10.1109/tgrs.2023.3318980) | — | [Source](docs/literature-sources.md#r179) |
+| 2022 | IEEE TGRS | Cross-modal / cross-sensor translation | Basis Pursuit Denoising via Recurrent Neural Network Applied to Super-Resolving SAR Tomography | [Paper](https://doi.org/10.1109/tgrs.2022.3221185) | — | [Source](docs/literature-sources.md#r4784) |
 | 2022 | IEEE TGRS | Cross-modal / cross-sensor translation | Cloud removal in remote sensing images using generative adversarial networks and SAR-to-optical image translation | [Paper](https://doi.org/10.1109/tgrs.2021.3131035) | — | [Source](docs/literature-sources.md#r180) |
 | 2022 | IEEE TGRS | Cross-modal / cross-sensor translation | FG-GAN: A Fine-Grained Generative Adversarial Network for Unsupervised SAR-to-Optical Image Translation | [Paper](https://doi.org/10.1109/tgrs.2022.3165371) | — | [Source](docs/literature-sources.md#r181) |
 | 2022 | IEEE TGRS | Cross-modal / cross-sensor translation | Hybrid cGAN: Coupling Global and Local Features for SAR-to-Optical Image Translation | [Paper](https://doi.org/10.1109/tgrs.2022.3212208) | — | [Source](docs/literature-sources.md#r182) |
 | 2022 | IEEE TGRS | Cross-modal / cross-sensor translation | Multiscale Generative Adversarial Network Based on Wavelet Feature Learning for SAR-to-Optical Image Translation | [Paper](https://doi.org/10.1109/tgrs.2022.3211415) | — | [Source](docs/literature-sources.md#r183) |
 | 2022 | IEEE TGRS | Cross-modal / cross-sensor translation | SAR-to-Optical Image Translation With Hierarchical Latent Features | [Paper](https://doi.org/10.1109/tgrs.2022.3200996) | — | [Source](docs/literature-sources.md#r187) |
-| 2022 | IEEE TGRS | Cross-modal / cross-sensor translation | Basis Pursuit Denoising via Recurrent Neural Network Applied to Super-Resolving SAR Tomography | [Paper](https://doi.org/10.1109/tgrs.2022.3221185) | — | [Source](docs/literature-sources.md#r4784) |
 
 <a id="reference-guided"></a>
 #### Image Editing, Restoration, and Completion
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2026 | Remote Sensing | Editing / restoration / completion | FEDM: Feature-Encoding Diffusion Model for Large-Scale SAR Image Inpainting | [Paper](https://doi.org/10.3390/rs18132116) | [Code](https://github.com/yjyyy/FEDM-SAR-Inpainting) | [Source](docs/literature-sources.md#r193) |
+| 2026 | ACM SIGSPATIAL (Application Track) | Image editing / restoration / completion | Genesis: A Generative Engine for Hierarchical Satellite Image Synthesis | [Paper](https://doi.org/10.1145/3841645.3843313) | [Code](https://github.com/mvrl/genesis) | [Source](docs/literature-sources.md#s2-r2) |
+| 2026 | ISPRS JPRS | Image editing / restoration / completion | Guided diffusion-based image editing for landslide image synthesis in remote sensing change detection | [Paper](https://doi.org/10.1016/j.isprsjprs.2026.08.007) | — | [Source](docs/literature-sources.md#s2-r20) |
+| 2026 | Remote Sensing | Editing / restoration / completion | PCRDiff: A Perlin Noise-Based Cloud Removal Diffusion Model for Remote Sensing Images | [Paper](https://doi.org/10.3390/rs18081171) | [Code](https://github.com/scnscn/PCRDiff) | [Source](docs/literature-sources.md#r197) |
 | 2025 | IEEE TGRS | Editing / restoration / completion | A Dual-Stage Residual Diffusion Model With Perceptual Decoding for Remote Sensing Image Dehazing | [Paper](https://doi.org/10.1109/tgrs.2025.3600540) | — | [Source](docs/literature-sources.md#r201) |
 | 2025 | IEEE TGRS | Editing / restoration / completion | DBD-CR: Dual-Branch Diffusion Residual Reconstruction for Cloud Removal in Optical Remote Sensing Images | [Paper](https://doi.org/10.1109/tgrs.2025.3550422) | — | [Source](docs/literature-sources.md#r204) |
 | 2025 | IEEE TGRS | Editing / restoration / completion | Dehazing-DiffGAN: Sequential Fusion of Diffusion Models and GANs for High-Fidelity Remote Sensing Image Dehazing | [Paper](https://doi.org/10.1109/tgrs.2025.3603430) | — | [Source](docs/literature-sources.md#r205) |
@@ -280,9 +297,11 @@ Existing remote-sensing observations constrain translated, edited, restored, com
 | 2025 | CVPR | Editing / restoration / completion | Effective Cloud Removal for Remote Sensing Images by an Improved Mean-Reverting Denoising Model with Elucidated Design Space | [Paper](https://doi.org/10.1109/cvpr52734.2025.01663) | — | [Source](docs/literature-sources.md#r209) |
 | 2025 | IEEE TGRS | Editing / restoration / completion | KAO: Kernel-Adaptive Optimization in Diffusion for Satellite Image | [Paper](https://doi.org/10.1109/tgrs.2025.3621738) | — | [Source](docs/literature-sources.md#r213) |
 | 2025 | IEEE TGRS | Editing / restoration / completion | Multimodal Diffusion Bridge With Attention-Based SAR Fusion for Satellite Image Cloud Removal | [Paper](https://doi.org/10.1109/tgrs.2025.3604654) | — | [Source](docs/literature-sources.md#r215) |
+| 2025 | Remote Sensing | Editing / restoration / completion | SAR-DeCR: Latent Diffusion for SAR-Fused Thick Cloud Removal | [Paper](https://doi.org/10.3390/rs17132241) | [Code](https://github.com/hshhhhhh123/SAR-DeCR) | [Source](docs/literature-sources.md#r219) |
 | 2024 | NeurIPS | Editing / restoration / completion | COSMIC: Compress Satellite Images Efficiently via Diffusion Compensation | [Paper](https://doi.org/10.52202/079017-2918) | — | [Source](docs/literature-sources.md#r221) |
 | 2024 | IEEE TGRS | Editing / restoration / completion | Despeckling SAR Images With Log-Yeo--Johnson Transformation and Conditional Diffusion Models | [Paper](https://doi.org/10.1109/tgrs.2024.3419083) | — | [Source](docs/literature-sources.md#r222) |
 | 2024 | IEEE TGRS | Editing / restoration / completion | DiffCR: A Fast Conditional Diffusion Framework for Cloud Removal From Optical Satellite Images | [Paper](https://doi.org/10.1109/tgrs.2024.3365806) | — | [Source](docs/literature-sources.md#r223) |
+| 2023 | Remote Sensing | Editing / restoration / completion | SatelliteCloudGenerator: Controllable Cloud and Shadow Synthesis for Multi-Spectral Optical Satellite Images | [Paper](https://doi.org/10.3390/rs15174138) | [Code](https://github.com/strath-ai/SatelliteCloudGenerator) | [Source](docs/literature-sources.md#r229) |
 | 2023 | IEEE TGRS | Editing / restoration / completion | Transformer Meets GAN: Cloud-Free Multispectral Image Reconstruction via Multisensor Data Fusion in Satellite Images | [Paper](https://doi.org/10.1109/tgrs.2023.3326545) | — | [Source](docs/literature-sources.md#r230) |
 | 2022 | IEEE TGRS | Editing / restoration / completion | Dehaze-AGGAN: Unpaired Remote Sensing Image Dehazing Using Enhanced Attention-Guide Generative Adversarial Networks | [Paper](https://doi.org/10.1109/tgrs.2022.3204890) | — | [Source](docs/literature-sources.md#r231) |
 | 2022 | IEEE TGRS | Editing / restoration / completion | PLFM: Pixel-Level Merging of Intermediate Feature Maps by Disentangling and Fusing Spatial and Temporal Data for Cloud Removal | [Paper](https://doi.org/10.1109/tgrs.2022.3208694) | — | [Source](docs/literature-sources.md#r232) |
@@ -293,12 +312,15 @@ Existing remote-sensing observations constrain translated, edited, restored, com
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
 | 2026 | ICML | Spatial–spectral resolution enhancement | AnyBand-Diff: A Unified Remote Sensing Image Generation and Band Repair Framework with Spectral Priors | [Paper](https://proceedings.mlr.press/v306/zuopeng26a.html) | — | [Source](docs/literature-sources.md#r237) |
+| 2026 | IEEE JSTARS | Spatial–spectral resolution enhancement | Controllable Reference-Guided Diffusion With Local--Global Fusion for Real-World Remote Sensing Super-Resolution | [Paper](https://doi.org/10.1109/jstars.2026.3654927) | [Code](https://github.com/wwangcece/CRefDiff) | [Source](docs/literature-sources.md#r238) |
 | 2026 | ICML | Spatial–spectral resolution enhancement | Degradation-Aware Metric Prompting for Hyperspectral Image Restoration | [Paper](https://proceedings.mlr.press/v306/wang26hr.html) | — | [Source](docs/literature-sources.md#r5474) |
 | 2026 | CVPR | Spatial–spectral resolution enhancement | EMR-Diff: Edge-Aware Multimodal Residual Diffusion Model for Hyperspectral Image Super-Resolution | [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_EMR-Diff_Edge-aware_Multimodal_Residual_Diffusion_Model_for_Hyperspectral_Image_Super-resolution_CVPR_2026_paper.html) | — | [Source](docs/literature-sources.md#r239) |
 | 2026 | RSE | Spatial–spectral resolution enhancement | PGDM: Physically Guided Diffusion Model for Land Surface Temperature Downscaling | [Paper](https://doi.org/10.1016/j.rse.2026.115432) | — | [Source](docs/literature-sources.md#r243) |
+| 2026 | IEEE JSTARS | Spatial–spectral resolution enhancement | Remote Sensing Image Blind Super-Resolution via a Convolutional Neural Network-Guided Conditional Diffusion Model | [Paper](https://doi.org/10.1109/jstars.2025.3645789) | [Code](https://github.com/Meng-333/DiffBSR) | [Source](docs/literature-sources.md#r244) |
 | 2026 | CVPR | Spatial–spectral resolution enhancement | Remote Sensing Image Super-Resolution for Imbalanced Textures: A Texture-Aware Diffusion Framework | [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_Remote_Sensing_Image_Super-Resolution_for_Imbalanced_Textures_A_Texture-Aware_Diffusion_CVPR_2026_paper.html) | — | [Source](docs/literature-sources.md#r245) |
 | 2026 | IEEE TGRS | Spatial–spectral resolution enhancement | Spatiotemporal Dual Priors Guided Diffusion for Remote Sensing Spatiotemporal Fusion | [Paper](https://doi.org/10.1109/tgrs.2026.3664495) | — | [Source](docs/literature-sources.md#r248) |
 | 2026 | CVPR | Spatial–spectral resolution enhancement | Spectral Super-Resolution via Adversarial Unfolding and Data-Driven Spectrum Regularization: From Multispectral Satellite Data to NASA Hyperspectral Image | [Paper](https://openaccess.thecvf.com/content/CVPR2026/html/Young_Spectral_Super-Resolution_via_Adversarial_Unfolding_and_Data-Driven_Spectrum_Regularization_From_CVPR_2026_paper.html) | — | [Source](docs/literature-sources.md#r249) |
+| 2025 | IEEE JSTARS | Spatial–spectral resolution enhancement | Adaptive Semantic-Enhanced Denoising Diffusion Probabilistic Model for Remote Sensing Image Super-Resolution | [Paper](https://ieeexplore.ieee.org/document/10763472/) | [Code](https://github.com/littlebeen/ASDDPM-Adaptive-Semantic-Enhanced-DDPM) | [Source](docs/literature-sources.md#r251) |
 | 2025 | IEEE TGRS | Spatial–spectral resolution enhancement | DiffFuSR: Super-Resolution of all Sentinel-2 Multispectral Bands using Diffusion Models | [Paper](https://doi.org/10.1109/tgrs.2025.3638896) | — | [Source](docs/literature-sources.md#r253) |
 | 2025 | IEEE TMM | Spatial–spectral resolution enhancement | FrDiff: Framelet-Based Conditional Diffusion Model for Multispectral and Panchromatic Image Fusion | [Paper](https://doi.org/10.1109/tmm.2025.3565985) | — | [Source](docs/literature-sources.md#r254) |
 | 2025 | IEEE TGRS | Spatial–spectral resolution enhancement | HyperKING: Quantum-Classical Generative Adversarial Networks for Hyperspectral Image Restoration | [Paper](https://doi.org/10.1109/tgrs.2025.3561951) | — | [Source](docs/literature-sources.md#r255) |
@@ -308,10 +330,14 @@ Existing remote-sensing observations constrain translated, edited, restored, com
 | 2025 | IEEE TGRS | Spatial–spectral resolution enhancement | PanDiT: A Few-Step Diffusion Transformer for High-Fidelity and Efficient Pansharpening | [Paper](https://doi.org/10.1109/tgrs.2025.3630637) | — | [Source](docs/literature-sources.md#r260) |
 | 2025 | IEEE TGRS | Spatial–spectral resolution enhancement | SeG-SR: Integrating Semantic Knowledge Into Remote Sensing Image Super-Resolution via Vision-Language Model | [Paper](https://doi.org/10.1109/tgrs.2025.3612420) | — | [Source](docs/literature-sources.md#r5529) |
 | 2025 | CVPR | Spatial–spectral resolution enhancement | Self-Learning Hyperspectral and Multispectral Image Fusion via Adaptive Residual Guided Subspace Diffusion Model | [Paper](https://openaccess.thecvf.com/content/CVPR2025/html/Zhu_Self-Learning_Hyperspectral_and_Multispectral_Image_Fusion_via_Adaptive_Residual_Guided_CVPR_2025_paper.html) | — | [Source](docs/literature-sources.md#r264) |
+| 2025 | IEEE TCSVT | Spatial–spectral resolution enhancement | Spatial-Spectral Aggregation Transformer With Diffusion Prior for Hyperspectral Image Super-Resolution | [Paper](https://doi.org/10.1109/tcsvt.2024.3508844) | [Code](https://github.com/WanJieShiMeng/SSAT-DPF) | [Source](docs/literature-sources.md#r265) |
 | 2025 | IEEE TGRS | Spatial–spectral resolution enhancement | Super-Resolved 3-D Satellite Lidar Imaging of Earth via Generative Diffusion Models | [Paper](https://doi.org/10.1109/tgrs.2025.3543670) | — | [Source](docs/literature-sources.md#r266) |
+| 2025 | IEEE JSTARS | Spatial–spectral resolution enhancement | Transformer-Based Diffusion and Spectral Priors Model for Hyperspectral Pansharpening | [Paper](https://doi.org/10.1109/jstars.2025.3590685) | [Code](https://github.com/DIGiTLabHub/uTDSP) | [Source](docs/literature-sources.md#r268) |
+| 2025 | IEEE JSTARS | Spatial–spectral resolution enhancement | Trustworthy Super-Resolution of Multispectral Sentinel-2 Imagery With Latent Diffusion | [Paper](https://doi.org/10.1109/jstars.2025.3542220) | [Code](https://github.com/ESAOpenSR/opensr-model) | [Source](docs/literature-sources.md#r269) |
 | 2025 | IEEE TGRS | Spatial–spectral resolution enhancement | TTRD3: Texture Transfer Residual Denoising Dual Diffusion Model for Remote Sensing Image Super-Resolution | [Paper](https://doi.org/10.1109/TGRS.2025.3626248) | — | [Source](docs/literature-sources.md#r270) |
 | 2024 | IEEE TGRS | Spatial–spectral resolution enhancement | A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution | [Paper](https://doi.org/10.1109/tgrs.2024.3458009) | — | [Source](docs/literature-sources.md#r272) |
 | 2024 | IEEE TGRS | Spatial–spectral resolution enhancement | A Spectral Diffusion Prior for Unsupervised Hyperspectral Image Super-Resolution | [Paper](https://doi.org/10.1109/tgrs.2024.3449073) | — | [Source](docs/literature-sources.md#r273) |
+| 2024 | Information Fusion | Spatial–spectral resolution enhancement | Diffusion Model With Disentangled Modulations for Sharpening Multispectral and Hyperspectral Images | [Paper](https://doi.org/10.1016/j.inffus.2023.102158) | [Code](https://github.com/294coder/Dif-PAN) | [Source](docs/literature-sources.md#r274) |
 | 2024 | IEEE TGRS | Spatial–spectral resolution enhancement | Empower Generalizability for Pansharpening Through Text-Modulated Diffusion Model | [Paper](https://doi.org/10.1109/tgrs.2024.3434431) | — | [Source](docs/literature-sources.md#r275) |
 | 2024 | AAAI | Spatial–spectral resolution enhancement | Enhancing Hyperspectral Images via Diffusion Model and Group-Autoencoder Super-Resolution Network | [Paper](https://doi.org/10.1609/aaai.v38i6.28392) | — | [Source](docs/literature-sources.md#r276) |
 | 2024 | CVPR | Spatial–spectral resolution enhancement | HIR-Diff: Unsupervised Hyperspectral Image Restoration Via Improved Diffusion Models | [Paper](https://doi.org/10.1109/cvpr52733.2024.00290) | [Code](https://github.com/LiPang/HIRDiff) | [Source](docs/literature-sources.md#r277) |
@@ -320,11 +346,13 @@ Existing remote-sensing observations constrain translated, edited, restored, com
 | 2024 | NeurIPS | Spatial–spectral resolution enhancement | SSDiff: Spatial-spectral Integrated Diffusion Model for Remote Sensing Pansharpening | [Paper](https://doi.org/10.52202/079017-2478) | — | [Source](docs/literature-sources.md#r282) |
 | 2024 | CVPR | Spatial–spectral resolution enhancement | Unmixing before Fusion: A Generalized Paradigm for Multi-Source-Based Hyperspectral Image Synthesis | [Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Unmixing_Before_Fusion_A_Generalized_Paradigm_for_Multi-Source-based_Hyperspectral_Image_CVPR_2024_paper.html) | — | [Source](docs/literature-sources.md#r283) |
 | 2024 | CVPR | Spatial–spectral resolution enhancement | Unmixing Diffusion for Self-Supervised Hyperspectral Image Denoising | [Paper](https://doi.org/10.1109/cvpr52733.2024.02628) | — | [Source](docs/literature-sources.md#r284) |
+| 2024 | Information Fusion | Spatial–spectral resolution enhancement | Unsupervised Hyperspectral Pansharpening via Low-Rank Diffusion Model | [Paper](https://doi.org/10.1016/j.inffus.2024.102325) | [Code](https://github.com/earth-insights/PLRDiff) | [Source](docs/literature-sources.md#r285) |
 | 2024 | IEEE TGRS | Spatial–spectral resolution enhancement | VSDM: Variable-Scale Diffusion Model Based on Dynamic Condition Guidance for Pansharpening | [Paper](https://doi.org/10.1109/tgrs.2024.3504857) | — | [Source](docs/literature-sources.md#r286) |
 | 2023 | ICCV | Spatial–spectral resolution enhancement | DDS2M: Self-Supervised Denoising Diffusion Spatio-Spectral Model for Hyperspectral Image Restoration | [Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Miao_DDS2M_Self-Supervised_Denoising_Diffusion_Spatio-Spectral_Model_for_Hyperspectral_Image_Restoration_ICCV_2023_paper.html) | — | [Source](docs/literature-sources.md#r287) |
 | 2023 | IEEE TGRS | Spatial–spectral resolution enhancement | EDiffSR: An Efficient Diffusion Probabilistic Model for Remote Sensing Image Super-Resolution | [Paper](https://doi.org/10.1109/tgrs.2023.3341437) | — | [Source](docs/literature-sources.md#r288) |
 | 2023 | ICCV | Spatial–spectral resolution enhancement | HSR-Diff: Hyperspectral Image Super-Resolution via Conditional Diffusion Models | [Paper](https://doi.org/10.1109/iccv51070.2023.00652) | — | [Source](docs/literature-sources.md#r289) |
 | 2023 | IEEE TGRS | Spatial–spectral resolution enhancement | PanDiff: A Novel Pansharpening Method Based on Denoising Diffusion Probabilistic Model | [Paper](https://doi.org/10.1109/tgrs.2023.3279864) | — | [Source](docs/literature-sources.md#r290) |
+| 2023 | Remote Sensing | Spatial–spectral resolution enhancement | TESR: Two-Stage Approach for Enhancement and Super-Resolution of Remote Sensing Images | [Paper](https://doi.org/10.3390/rs15092346) | [Code](https://github.com/AnasHXH/TESR) | [Source](docs/literature-sources.md#r5560) |
 | 2021 | IEEE TGRS | Spatial–spectral resolution enhancement | Remote Sensing Image Spatiotemporal Fusion Using a Generative Adversarial Network | [Paper](https://doi.org/10.1109/tgrs.2020.3010530) | — | [Source](docs/literature-sources.md#r291) |
 
 <a id="temporal"></a>
@@ -340,10 +368,10 @@ Existing remote-sensing observations constrain translated, edited, restored, com
 | 2025 | IEEE TGRS | Temporal / change / future generation | Ringmo-SenseV2: Remote Sensing Foundation Model for Spatiotemporal Prediction Based on Multisource Heterogeneous Time-Series Data | [Paper](https://doi.org/10.1109/tgrs.2025.3565203) | — | [Source](docs/literature-sources.md#r301) |
 | 2025 | CVPR | Temporal / change / future generation | The Change You Want to Detect: Semantic Change Detection in Earth Observation with Hybrid Data Generation | [Paper](https://doi.org/10.1109/cvpr52734.2025.00211) | — | [Source](docs/literature-sources.md#r303) |
 | 2024 | IEEE TPAMI | Temporal / change / future generation | Changen2: Multi-Temporal Remote Sensing Generative Change Foundation Model | [Paper](https://doi.org/10.1109/tpami.2024.3475824) | — | [Source](docs/literature-sources.md#r305) |
+| 2024 | ACM TOMM | Temporal / change / future generation | TinyPredNet: A Lightweight Framework for Satellite Image Sequence Prediction | [Paper](https://doi.org/10.1145/3638773) | [Code](https://github.com/bigfeetsmalltone/TinyPredNet-A-Lightweight-Framework-for-Satellite-Image-Sequence-Prediction) | [Source](docs/literature-sources.md#r5617) |
 | 2023 | IEEE TGRS | Temporal / change / future generation | Learning Spatial--Temporal Consistency for Satellite Image Sequence Prediction | [Paper](https://doi.org/10.1109/tgrs.2023.3303947) | — | [Source](docs/literature-sources.md#r5619) |
 | 2023 | ICCV | Temporal / change / future generation | Scalable Multi-Temporal Remote Sensing Change Data Generation via Simulating Stochastic Change Process | [Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Zheng_Scalable_Multi-Temporal_Remote_Sensing_Change_Data_Generation_via_Simulating_Stochastic_ICCV_2023_paper.html) | — | [Source](docs/literature-sources.md#r307) |
 | 2022 | IEEE TGRS | Temporal / change / future generation | MSTCGAN: Multiscale Time Conditional Generative Adversarial Network for Long-Term Satellite Image Sequence Prediction | [Paper](https://doi.org/10.1109/tgrs.2022.3181279) | — | [Source](docs/literature-sources.md#r5622) |
-
 
 <a id="other-tasks"></a>
 <a id="physics"></a>
@@ -359,7 +387,9 @@ Geometry, acquisition parameters, scattering, polarization, radiative processes,
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
 | 2026 | ISPRS JPRS | Differentiable rendering / simulation | A Differentiable Method for Novel View SAR Image Generation via 3D Gaussian Splatting | [Paper](https://doi.org/10.1016/j.isprsjprs.2025.10.034) | — | [Source](docs/literature-sources.md#r97) |
 | 2026 | ACM MM (accepted) | Differentiable rendering / simulation | G-MAD: A Game-Based Data Generation Framework for Multi-View RGB-T Aerial Object Detection | [Paper](https://doi.org/10.1145/3767308.3834743) | — | [Source](docs/literature-sources.md#r98) |
+| 2026 | IEEE GRSL | Rendering / simulation | Rendering-Aware Remote Sensing Object Generation With Controllable Lighting and Shadows | [Paper](https://doi.org/10.1109/LGRS.2026.3719387) | — | [Source](docs/literature-sources.md#s2-r22) |
 | 2026 | IEEE JSTARS | Differentiable rendering / simulation | SAR-3DGS: 3-D Gaussian Splatting for Synthetic Aperture Radar Novel View Synthesis and Target Reconstruction | [Paper](https://doi.org/10.1109/jstars.2026.3673407) | — | [Source](docs/literature-sources.md#r99) |
+| 2026 | IEEE GRSL | Rendering / simulation | SAR-ERA: An Efficient Rendering Architecture for Real-Time Synthetic Aperture Radar Synthesis | [Paper](https://doi.org/10.1109/LGRS.2026.3719694) | — | [Source](docs/literature-sources.md#s2-r35) |
 | 2026 | IEEE TGRS | Differentiable rendering / simulation | Splatting SA: Direct Rendering of Synthetic Aperture Imagery | [Paper](https://doi.org/10.1109/tgrs.2026.3653637) | — | [Source](docs/literature-sources.md#r100) |
 | 2025 | IGARSS | Differentiable rendering / simulation | Generating SAR Images from Optical Data: A Hybrid AI and Physics-Based Approach | [Paper](https://doi.org/10.1109/igarss55030.2025.11243598) | — | [Source](docs/literature-sources.md#r101) |
 | 2025 | IGARSS | Differentiable rendering / simulation | SAR Image Generation via a Differentiable Framework Leveraging 3D Gaussian Splatting | [Paper](https://doi.org/10.1109/igarss55030.2025.11243095) | — | [Source](docs/literature-sources.md#r3305) |
@@ -378,6 +408,8 @@ Geometry, acquisition parameters, scattering, polarization, radiative processes,
 | 2026 | Remote Sensing | Geometry / view / acquisition control | Dual-Branch Feature Decoupling GAN with Wavelet Constraint for Azimuth-Controllable SAR Image Simulation | [Paper](https://doi.org/10.3390/rs18111784) | — | [Source](docs/literature-sources.md#r108) |
 | 2026 | arXiv | Geometry / view / acquisition control | GeoDiff-SAR II: 3D-Driven Foundation Diffusion Models for SAR Generation via Decoupled Control | [Paper](https://arxiv.org/abs/2605.21116) | — | [Source](docs/literature-sources.md#r110) |
 | 2026 | arXiv | Geometry / view / acquisition control | GeoDiff-SAR: A Geometric-Prior-Guided Diffusion Model for SAR Image Generation | [Paper](https://arxiv.org/abs/2601.03499) | — | [Source](docs/literature-sources.md#r109) |
+| 2026 | IEEE JSTARS | Geometry / view / acquisition control | Proto-DINO Pixel-Level Diffusion Transformer Based on Flow Matching for Azimuth-Controllable Multi-View SAR Image Synthesis | [Paper](https://doi.org/10.1109/JSTARS.2026.3731576) | — | [Source](docs/literature-sources.md#s2-r17) |
+| 2026 | ICIP | Geometry / view / acquisition control | SAR-NeuS: Neural Surface Inverse Rendering for 3D Reconstruction and Novel View Synthesis from SAR Imagery | [Paper](https://doi.org/10.1109/ICIP61757.2026.11630548) | — | [Source](docs/literature-sources.md#s2-r25) |
 | 2025 | Remote Sensing | Geometry / view / acquisition control | An Azimuth-Continuously Controllable SAR Image Generation Algorithm Based on GAN | [Paper](https://doi.org/10.3390/rs17223763) | — | [Source](docs/literature-sources.md#r111) |
 | 2025 | IGARSS | Geometry / view / acquisition control | Multi-View Approach for Physically-Guided SAR Image Generation Based on StyleGAN2 | [Paper](https://doi.org/10.1109/igarss55030.2025.11242603) | — | [Source](docs/literature-sources.md#r112) |
 | 2025 | IGARSS | Geometry / view / acquisition control | SAR Image Generation Algorithm Based on Azimuth Partition Directed Generative Adversarial Network | [Paper](https://doi.org/10.1109/igarss55030.2025.11242751) | — | [Source](docs/literature-sources.md#r113) |
@@ -390,6 +422,8 @@ Geometry, acquisition parameters, scattering, polarization, radiative processes,
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2026 | IJAEOG | Scattering / polarimetric / sensor priors | A Physical Scattering-Guided Prior-Enhanced Mamba Model for High-Fidelity SAR Ship Generation in Complex Backgrounds | [Paper](https://doi.org/10.1016/j.jag.2026.105503) | — | [Source](docs/literature-sources.md#s2-r3) |
+| 2026 | IEEE GRSL | Scattering / polarimetric / sensor priors | Electromagnetic Mechanisms Guided Structure-Constrained Flow Matching for Rapid Realistic SAR Image Generation | [Paper](https://doi.org/10.1109/LGRS.2026.3726134) | — | [Source](docs/literature-sources.md#s2-r23) |
 | 2026 | arXiv | Scattering / polarimetric / sensor priors | HuiYanEarth-SAR: A Foundation Model for High-Fidelity and Low-Cost Global Remote Sensing Imagery Generation | [Paper](https://arxiv.org/abs/2604.11444) | — | [Source](docs/literature-sources.md#r123) |
 | 2026 | AAAI | Scattering / polarimetric / sensor priors | SAR-DisentDM: A Semantic-Disentangled Diffusion Model for Limited-Data SAR Image Synthesis | [Paper](https://doi.org/10.1609/aaai.v40i14.38165) | — | [Source](docs/literature-sources.md#r124) |
 | 2026 | Remote Sensing | Scattering / polarimetric / sensor priors | Scattering Center Prior-Guided Diffusion for Unknown-Azimuth SAR Image Generation | [Paper](https://doi.org/10.3390/rs18142417) | — | [Source](docs/literature-sources.md#r126) |
@@ -401,13 +435,13 @@ Geometry, acquisition parameters, scattering, polarization, radiative processes,
 | 2025 | ICCV | Scattering / polarimetric / sensor priors | Ph-GAN: Physics-Inspired GAN for Generating SAR Images Under Limited Data | [Paper](https://arxiv.org/abs/2503.02242) | — | [Source](docs/literature-sources.md#r130) |
 | 2025 | arXiv | Scattering / polarimetric / sensor priors | Physics-Informed Diffusion Models for SAR Ship Wake Generation from Text Prompts | [Paper](https://arxiv.org/abs/2504.20241) | — | [Source](docs/literature-sources.md#r3866) |
 | 2024 | IEEE GRSL | Scattering / polarimetric / sensor priors | PolSAR Ship Targets Generation via the Polarimetric Feature Guided Denoising Diffusion Probabilistic Model | [Paper](https://doi.org/10.1109/lgrs.2024.3407147) | — | [Source](docs/literature-sources.md#r131) |
-| 2024 | arXiv | Scattering / polarimetric / sensor priors | SAR-AE-SFP: SAR Imagery Adversarial Example in Real Physics domain with Target Scattering Feature Parameters | [Paper](https://arxiv.org/abs/2403.01210) | — | [Source](docs/literature-sources.md#r3874) |
 
 <a id="spectral-physics"></a>
 #### Radiative, Atmospheric, and Spectral Physics
 
 | Year | Venue | Keywords | Name | Paper | Code | More |
 | :---: | :---: | --- | --- | :---: | :---: | :---: |
+| 2026 | arXiv | Radiative / atmospheric / spectral physics | BRF-GS: Hyperspectral Bidirectional Reflectance Factor Modeling and Image Generation Based on 3D Gaussian Splatting | [Paper](https://arxiv.org/abs/2608.31159) | — | [Source](docs/literature-sources.md#s2-r9) |
 | 2024 | Remote Sensing | Radiative / atmospheric / spectral physics | High-Fidelity Infrared Remote Sensing Image Generation Method Coupled with the Global Radiation Scattering Mechanism and Pix2PixGAN | [Paper](https://doi.org/10.3390/rs16234350) | — | [Source](docs/literature-sources.md#r117) |
 | 2024 | IEEE TGRS | Radiative / atmospheric / spectral physics | UnmixDiff: Unmixing-Based Diffusion Model for Hyperspectral Image Synthesis | [Paper](https://doi.org/10.1109/tgrs.2024.3425517) | [Code](https://github.com/yuyang95/UnmixingDM) | [Source](docs/literature-sources.md#r118) |
 | 2023 | IEEE TGRS | Radiative / atmospheric / spectral physics | Hyperspectral Remote Sensing Image Synthesis Based on Implicit Neural Spectral Mixing Models | [Paper](https://doi.org/10.1109/tgrs.2022.3232705) | — | [Source](docs/literature-sources.md#r119) |
@@ -423,7 +457,7 @@ Comparators and related 3D work are kept for scope context rather than promoted 
 <a id="observation-supplementary"></a>
 ### Observation-Driven Supplementary and Pending Records
 
-[119 supplementary and 6 venue-scope-pending papers](docs/observation-supplementary.md) remain available with their original paper/code/source links. They are not included in the 81-paper observation-driven core. A venue decision is not a judgment that an individual paper lacks research value.
+[Additional observation-driven papers](docs/observation-supplementary.md).
 
 <a id="comparators"></a>
 ### Restoration and Enhancement Comparators
@@ -437,7 +471,7 @@ These nine existing records have no generation subclass assigned in the source t
 | 2025 | ICCV | Restoration and Reconstruction | Hipandas: Hyperspectral Image Joint Denoising and Super-Resolution by Image Fusion with the Panchromatic Image | [Paper](https://openaccess.thecvf.com/content/ICCV2025/html/Xu_Hipandas_Hyperspectral_Image_Joint_Denoising_and_Super-Resolution_by_Image_Fusion_ICCV_2025_paper.html) | — | [Source](docs/literature-sources.md#r14) |
 | 2025 | IEEE JSTARS | Restoration and Reconstruction | Winscaleformer: Diffusion-Attention-Based Single Remote Sensing Image Dehazing | [Paper](https://doi.org/10.1109/jstars.2025.3623240) | — | [Source](docs/literature-sources.md#r19) |
 | 2024 | Remote Sensing | Restoration and Reconstruction | Activated Sparsely Sub-Pixel Transformer for Remote Sensing Image Super-Resolution | [Paper](https://doi.org/10.3390/rs16111895) | — | [Source](docs/literature-sources.md#r20) |
-| 2024 | arXiv | Restoration and Reconstruction | Cross-sensor Super-resolution of Irregularly Sampled Sentinel-2 Time Series | [Paper](https://arxiv.org/abs/2404.16409) | — | [Source](docs/literature-sources.md#r21) |
+| 2024 | CVPR Workshops | Restoration and Reconstruction | Cross-sensor Super-resolution of Irregularly Sampled Sentinel-2 Time Series | [Paper](https://openaccess.thecvf.com/content/CVPR2024W/EarthVision/html/Okabayashi_Cross-sensor_super-resolution_of_irregularly_sampled_Sentinel-2_time_series_CVPRW_2024_paper.html) | — | [Source](docs/literature-sources.md#r21) |
 | 2023 | ICCV | Restoration and Reconstruction | ESSAformer: Efficient Transformer for Hyperspectral Image Super-resolution | [Paper](https://arxiv.org/abs/2307.14010) | — | [Source](docs/literature-sources.md#r25) |
 | 2023 | CVPR | Restoration and Reconstruction | Toward Stable, Interpretable, and Lightweight Hyperspectral Super-Resolution | [Paper](https://doi.org/10.1109/CVPR52729.2023.02133) | — | [Source](docs/literature-sources.md#r26) |
 | 2022 | IEEE TGRS | Restoration and Reconstruction | Permutation Invariance and Uncertainty in Multitemporal Image Super-Resolution | [Paper](https://doi.org/10.1109/tgrs.2021.3130673) | — | [Source](docs/literature-sources.md#r28) |
